@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/white"/>
+
+    <!--<item-->
+    <!--android:bottom="40dp"-->
+    <!--&gt;-->
+    <!--<bitmap-->
+    <!--android:gravity="center|bottom"-->
+    <!--android:src="@mipmap/main_ic_splash_copyright"-->
+    <!--/>-->
+    <!--</item>-->
+
+    <!--<item-->
+    <!--android:gravity="top"-->
+    <!--android:top="162dp">-->
+    <!--<bitmap-->
+    <!--android:gravity="top"-->
+    <!--android:src="@mipmap/main_ic_splash"/>-->
+    <!--</item>-->
+
+</layer-list>

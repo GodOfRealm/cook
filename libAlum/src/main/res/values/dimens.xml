@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sv_cover_thumb_width">32dp</dimen>
+    <dimen name="sv_cover_thumb_height">54dp</dimen>
+    <dimen name="sv_cover_edge">20dp</dimen>
+</resources>

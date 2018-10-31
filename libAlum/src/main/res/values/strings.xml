@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="tag_key">100</string>
+    <string name="tag_binding">200</string>
+
+    <string name="pic_dialog_cancel">取消</string>
+    <string name="pic_dialog_ok">确定</string>
+    <string name="pic_input_send">发送</string>
+
+    <string name="pic_authorities_fileprovider">.fileprovider</string>
+    <string name="pic_grant_needed">您需要在设置中打开权限</string>
+    <string name="pic_btn_ok">确定</string>
+    <string name="pic_btn_cancel">取消</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="common_title_text_size_toolbar">18sp</dimen><!-- toolbar标题文本大小 -->
+    <dimen name="common_right_text_size_toolbar">16sp</dimen><!-- toolbar右边文本大小 -->
+
+</resources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="@dimen/dialog_width"
+        android:layout_height="match_parent"
+        android:background="@drawable/common_bg_dialog"
+        android:minHeight="290dp"
+        >
+
+        <com.miguan.youmi.core.widget.radius.RadiusImageView
+            android:id="@+id/user_iv_version_update_dialog_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:src="@mipmap/user_bg_version_update"
+            app:rv_corner_radius_top_left="@dimen/common_radius"
+            app:rv_corner_radius_top_right="@dimen/common_radius"
+            />
+
+        <TextView
+            android:id="@+id/user_tv_version_update_dialog_new_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="22.5dp"
+            android:text="@string/new_version"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/user_tv_version_update_dialog_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="V"
+            android:textColor="@color/color_ff7200"
+            android:textSize="17dp"
+            app:layout_constraintStart_toStartOf="@+id/user_tv_version_update_dialog_new_version"
+            app:layout_constraintTop_toBottomOf="@+id/user_tv_version_update_dialog_new_version"
+            />
+
+        <TextView
+            android:id="@+id/user_tv_version_update_dialog_message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="16.5dp"
+            android:text="@string/update_message_title"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/text_size_body2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_iv_version_update_dialog_bg"
+            />
+
+        <TextView
+            android:id="@+id/user_tv_version_update_dialog_message_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="11.5dp"
+            android:minHeight="80dp"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/text_size_body"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_tv_version_update_dialog_message_title"
+            />
+
+        <com.miguan.youmi.core.widget.radius.RadiusTextView
+            android:id="@+id/user_tv_version_update_dialog_update"
+            style="@style/ButtonStrokeRoundPrimary"
+            android:layout_width="213dp"
+            android:layout_marginBottom="26dp"
+            android:layout_marginTop="21.5dp"
+            android:text="@string/update_right_now"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_tv_version_update_dialog_message_content"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

@@ -1,0 +1,69 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base">
+
+    </style>
+
+    <style name="LaunchTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/main_bg_launch</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <!-- 全局文本样式，通过android:textAppearance设置，具体属性在@style/AppTheme.Base里设置，
+    分别是：android:textColorPrimary， android:textColorSecondary， android:textColorTertiary三个属性 -->
+    <!-- textSize: 20sp; textColor: @color/textColorPrimary -->
+    <!-- textSize: 16sp; textColor: @color/textColorPrimary -->
+    <!-- textSize: 14sp; textColor: @color/textColorPrimary -->
+    <!-- textSize: 12sp; textColor: @color/colorTextSecondary bbbbbb-->
+    <!-- textSize: 12sp; textColor: @color/textColorTertiary 999999-->
+
+    <!--统一分割线样式-->
+    <style name="DividerTheme">
+        <item name="android:id">@id/base_recycler_item_divider</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginStart">17dp</item>
+        <item name="android:background">@color/divPrimary</item>
+    </style>
+
+    <!-- 常用TabLayout样式 -->
+
+    <!-- 通用Dialog -->
+    <style name="CommonDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item><!--背景颜色及透明程度-->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFrame">@null</item><!-- 边框 -->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:backgroundDimEnabled">true</item><!--是否模糊-->
+        <item name="android:backgroundDimAmount">0.7</item><!-- 黑色遮罩透明度 -->
+        <item name="android:windowAnimationStyle">@style/CommonDialogAnimation</item>
+    </style>
+
+    <!-- 自定义Dialog主题 -->
+
+    <!-- 底部Dialog动画 -->
+
+    <!-- CommonDialog动画 -->
+    <style name="CommonDialogAnimation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_out</item>
+    </style>
+
+    <!-- 大圆角带边框按钮 -->
+    <style name="ButtonStrokeRoundPrimary">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_fcbe00</item>
+        <item name="android:textSize">@dimen/text_size_subhead2</item>
+        <item name="rv_radius">20dp</item>
+        <item name="rv_strokeColor">@color/color_ffcb2c</item>
+        <item name="rv_strokeWidth">1dp</item>
+    </style>
+
+</resources>

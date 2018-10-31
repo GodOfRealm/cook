@@ -1,0 +1,45 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.libalum">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+
+        <activity
+            android:name=".AlbumSelectorActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppAlumTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+            android:name=".ImageBrowserActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppAlumTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+            android:name=".TakingPictureActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppAlumTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+            android:name=".shortvideo.ShortVideoPreviewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".shortvideo.ShortVideoEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".clip.NewCropActivity"
+            android:screenOrientation="portrait"
+            android:label="剪裁" />
+
+    </application>
+
+</manifest>

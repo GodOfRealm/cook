@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/common_ll_web_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@id/base_toolbar"
+            style="@style/ToolbarTheme"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@id/base_toolbar_back"
+                android:layout_width="42dp"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:scaleType="centerInside"
+                android:src="@mipmap/common_ic_back_arrow" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/base_toolbar_close"
+                android:layout_width="42dp"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:scaleType="centerInside"
+                android:src="@mipmap/user_ic_profile_close" />
+
+            <TextView
+                style="@style/ToolbarTitleTheme"
+                tools:text="这是标题" />
+
+            <ImageView
+                android:id="@id/base_toolbar_right"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:scaleType="centerInside" />
+
+            <TextView
+                style="@style/ToolbarRightTextTheme"
+                android:visibility="gone" />
+
+        </android.support.v7.widget.Toolbar>
+    </LinearLayout>
+
+</LinearLayout>

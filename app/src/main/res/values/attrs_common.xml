@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--搜索布局-->
+    <declare-styleable name="search_layout">
+        <!--输入框背景-->
+        <attr name="input_background" format="reference" />
+        <!--左边搜索icon-->
+        <attr name="left_search_icon" format="reference" />
+        <!--输入文本颜色-->
+        <attr name="input_text_color" format="color" />
+        <!--输入框文本大小-->
+        <attr name="input_text_size" format="dimension" />
+        <!--输入框hint文本颜色-->
+        <attr name="input_hint_text_color" format="color" />
+        <!--输入框hint文本-->
+        <attr name="input_hint_text" format="reference|string" />
+        <!--右边删除icon-->
+        <attr name="right_delete_icon" format="reference" />
+        <!--右边文字-->
+        <attr name="right_text" format="reference|string" />
+        <!--右边文字颜色-->
+        <attr name="right_text_color" format="color" />
+        <!--右边文字大小-->
+        <attr name="right_text_size" format="dimension" />
+    </declare-styleable>
+
+    <!--搜索框-->
+    <declare-styleable name="search_edit_text">
+        <!--左边icon-->
+        <attr name="left_icon" format="reference" />
+        <attr name="left_icon_width" format="dimension" />
+        <attr name="left_icon_height" format="dimension" />
+        <!--右边icon-->
+        <attr name="right_icon" format="reference" />
+        <attr name="right_icon_width" format="dimension" />
+        <attr name="right_icon_height" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="DividerTextView">
+        <attr name="dividerHeight" format="dimension" />
+        <attr name="dividerMarginStart" format="dimension" />
+        <attr name="dividerColor" format="color" />
+    </declare-styleable>
+
+
+    <!--限制字数EditText-->
+    <declare-styleable name="LimitEditText">
+        <attr name="maxCharLength" format="integer"/>
+        <attr name="isDivChAndEn" format="boolean"/>
+        <attr name="isToastTip" format="boolean"/>
+        <attr name="toastMsg" format="reference|string"/>
+    </declare-styleable>
+
+    <!--头像-->
+    <declare-styleable name="HeadLayout">
+        <attr name="clip_parent_num" format="integer" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+
+</resources>

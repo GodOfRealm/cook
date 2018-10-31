@@ -1,0 +1,54 @@
+apply from: "config.gradle"
+apply plugin: 'com.alibaba.arouter'
+
+buildscript {
+    ext {
+        kotlin_version = '1.2.71'
+        smartRefresh = "1.1.0-alpha-14"
+        supportLibVersion = "27.1.1"
+        svga_version = "2.1.9"
+        core_ktx = "1.0.0"
+    }
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/zouyuhan/maven' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath "com.alibaba:arouter-register:1.0.2"
+        //walle
+        classpath 'com.meituan.android.walle:plugin:1.1.6'
+
+        //tinker gradle plugin
+        classpath('com.tencent.tinker:tinker-patch-gradle-plugin:1.9.8')
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+//        classpath 'com.sensorsdata.analytics.android:android-gradle-plugin2:2.1.0'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }//注意!!! RxCache 是托管于 jitpack 仓库的, 如果没有这一段代码将永远依赖不了 RxCache
+        maven { url 'https://dl.bintray.com/zouyuhan/maven' } // 神策 maven 库地址
+    }
+    // 不同的依赖库可能会依赖不同版本的支持包,可以再在这里统一版本避免未知的问题
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion "${supportLibVersion}"
+                }
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

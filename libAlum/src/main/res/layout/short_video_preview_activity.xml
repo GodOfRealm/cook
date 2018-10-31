@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <VideoView
+        android:id="@+id/preview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <View
+        android:id="@+id/preview_mask"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/preview"
+        app:layout_constraintLeft_toLeftOf="@+id/preview"
+        app:layout_constraintRight_toRightOf="@+id/preview"
+        app:layout_constraintTop_toTopOf="@+id/preview"
+        />
+
+    <ImageView
+        android:id="@+id/play_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/godess_video_play_ic"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:background="@mipmap/sv_bg_record_shadow_top"
+        />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@id/base_toolbar"
+        style="@style/ToolbarTheme"
+        >
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_back_white"
+            />
+
+        <TextView
+            android:id="@+id/tv_complete"
+            style="@style/ToolbarRightTextTheme"
+            android:text="完成"
+            android:textColor="@color/white"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:src="#b3000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:paddingEnd="12dp"
+        android:paddingStart="12dp"
+        android:text="动态只能发表10秒内的视频，需进行编辑"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:paddingEnd="12dp"
+        android:paddingStart="12dp"
+        android:text="编辑"
+        android:textColor="#856fff"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

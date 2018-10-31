@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 发送验证码按钮 -->
+    <declare-styleable name="CaptchaButton">
+        <attr name="cb_time" format="integer"/>
+        <attr name="cb_disable_color" format="color"/>
+        <attr name="cb_enable_color" format="color"/>
+        <attr name="cb_enable_text" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="AudioView">
+        <!-- 是否显示开始录音的样式，如果不显示则未录制是隐藏整个控件 -->
+        <attr name="av_show_record_style" format="boolean"/>
+        <attr name="av_align_center" format="boolean"/>
+        <attr name="av_background" format="reference"/><!--背景资源-->
+        <attr name="av_left_icon" format="reference"/><!--左边icon-->
+        <attr name="av_play_icon" format="reference"/><!--播放icon-->
+        <attr name="av_show_del_icon" format="boolean"/><!--是否显示删除按钮-->
+        <attr name="av_del_icon" format="reference"/><!--删除-->
+        <attr name="av_play_anim" format="reference"/><!--播放动画-->
+        <attr name="av_text_color" format="color"/><!--字体颜色-->
+        <attr name="av_background_play_anim" format="reference"/><!--背景动画-->
+    </declare-styleable>
+    //圆环饼状图
+    <declare-styleable name="PercentPieView">
+        <attr name="centerTextSize" format="dimension" />
+        <attr name="dataTextSize" format="dimension" />
+        <attr name="centerTextColor" format="color" />
+        <attr name="dataTextColor" format="color" />
+        <attr name="drawText" format="boolean" />
+        <attr name="circleWidth" format="dimension" />
+    </declare-styleable>
+</resources>

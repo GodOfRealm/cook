@@ -1,0 +1,29 @@
+<resources>
+    <string name="common_app_name">Pick语音</string>
+    <string name="app_name">Pick语音</string>
+
+    <!--gender-->
+
+    <!--Search-->
+    <string name="search">搜索</string>
+
+    <!--Subscribe-->
+
+    <!-- 常用的简短的词语 -->
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+
+    <string name="permission_microphone">需要获取录制音频权限</string>
+    <string name="permission_write">需要读写权限</string>
+    <string name="permission_phone">需要获取手机信息权限</string>
+    <string name="dialog_permission_to_setting">去设置</string>
+    <string name="permission_album">需要获取照片和媒体权限</string>
+
+    <string name="time_format">%02d:%02d</string>
+
+    <string name="key">M1HxGS\u0023%s:%s</string>
+    <string name="common_start_download">开始下载</string>
+    <string name="common_download_error">下载失败</string>
+    <string name="common_download_success">下载成功</string>
+    <string name="common_upload_error">上传失败</string>
+</resources>

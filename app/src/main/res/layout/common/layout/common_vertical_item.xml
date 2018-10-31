@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/common_tv_vertical_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/common_bg_item"
+    android:gravity="center"
+    android:padding="20dp"
+    android:textColor="@color/colorTextPrimary"
+    android:textSize="15dp"
+    tools:text="取消订单"></TextView>

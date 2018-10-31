@@ -1,0 +1,189 @@
+//https://github.com/Tencent/tinker
+//https://www.jianshu.com/p/27e4f5abd210
+
+//#877  问题
+
+//从1开始，每次版本升级，重置为1，每打一次补丁，则递增，如：1、2、3
+def patch_version = "1"
+//def basePath = file("${buildDir}/outputs/tinker/")
+def basePath = file("tinker/")//指定生成apk文件的存放位置
+def newBaseName = "pick_v${rootProject.ext.android["versionName"]}_${rootProject.ext.android["versionCode"]}"
+def thinker_id = "${rootProject.ext.android["versionName"]}"
+def oldBaseName = "pick_base"//打补丁前，需要修改oldBaseName的值，基准包的名称
+
+//参数配置
+ext {
+    //for some reason, you may want to ignore tinkerBuild, such as instant run debug build?
+    //变量，控制Tinker是否可用
+    tinkerEnable = false
+    //for normal build
+    //old apk file to build patch apk 旧包名
+    //这里对应的路径就是app moudle下的oldApk路径（没有则自己新建），并且把需要修复版本的apk放进去
+    tinkerOldApkPath = "${basePath}/${oldBaseName}.apk"
+    //proguard mapping file to build patch apk  旧包混淆文件目录
+    //混淆的mapping 有则配置路径，我这里没有，所以随便写
+    tinkerApplyMappingPath = "${basePath}/${oldBaseName}-mapping.txt"
+    //resource R.txt to build patch apk, must input if there is resource changed 旧包R文件
+    //跟待修复版本apk一样，把老版本的resoures-r.txt放进来
+    //这个是为了避免新旧版本R不一致，导致找不到资源闪退
+    tinkerApplyResourcePath = "${basePath}/${oldBaseName}-R.txt"
+    //only use for build all flavor, if not, just ignore this field  多渠道
+    //tinkerBuildFlavorDirectory = "${basePath}/app-1018-17-32-47"
+    tinkerID = "${thinker_id}"
+}
+
+def buildWithTinker() {
+    return ext.tinkerEnable
+}
+
+def getOldApkPath() {
+    return ext.tinkerOldApkPath
+}
+
+def getApplyMappingPath() {
+    return ext.tinkerApplyMappingPath
+}
+
+def getApplyResourceMappingPath() {
+    return ext.tinkerApplyResourcePath
+}
+
+def getTinkerIdValue() {
+    return ext.tinkerID
+}
+
+if (buildWithTinker()) {
+    apply plugin: 'com.tencent.tinker.patch'
+
+    tinkerPatch {
+        oldApk = getOldApkPath() //指定old apk文件路径
+        /**
+         * 如果出现以下的情况，并且ignoreWarning为false，我们将中断编译。因为这些情况可能会导致编译出来的patch包
+         * 带来风险：
+         * 1. minSdkVersion小于14，但是dexMode的值为"raw";
+         * 2. 新编译的安装包出现新增的四大组件(Activity, BroadcastReceiver...)；
+         * 3. 定义在dex.loader用于加载补丁的类不在main dex中;
+         * 4. 定义在dex.loader用于加载补丁的类出现修改；
+         * 5. resources.arsc改变，但没有使用applyResourceMapping编译。
+         * */
+        ignoreWarning = false//这里最好不好改成true，不然有时候补丁是打出来了，不能用
+        useSign = true //patch文件必须是签名后的
+        tinkerEnable = buildWithTinker() //指定是否启用tinker
+        outputFolder = "${basePath}"//生成的补丁路径
+        buildConfig {
+            /**
+             * 可选参数；在编译新的apk时候，我们希望通过保持旧apk的proguard混淆方式，从而减少补丁包的大小。这个只
+             * 是推荐的，但设置applyMapping会影响任何的assemble编译。
+             * */
+            applyMapping = getApplyMappingPath() //指定old apk打包时所使用的混淆文件
+            /**
+             * 可选参数；在编译新的apk时候，我们希望通过旧apk的R.txt文件保持ResId的分配，这样不仅可以减少补丁包的
+             * 大小，同时也避免由于ResId改变导致remote view异常。
+             * */
+            applyResourceMapping = getApplyResourceMappingPath() //指定old apk的资源文件
+            /**
+             * 在运行过程中，我们需要验证基准apk包的tinkerId是否等于补丁包的tinkerId。这个是决定补丁包能运行在哪些
+             * 基准包上面，一般来说我们可以使用git版本号、versionName等等。
+             * */
+            tinkerId = getTinkerIdValue() //指定TinkerID
+            keepDexApply = false
+            isProtectedApp = false
+            supportHotplugComponent = false
+        }
+        dex {
+            dexMode = "jar" //jar、raw
+            pattern = ["classes*.dex", "assets/secondary-dex-?.jar"] //指定dex文件目录
+            loader = ["com.miguan.youmi.app.PickApplication"] //指定加载patch文件时用到的类
+        }
+        lib {
+            /**
+             * 需要处理lib路径，支持*、?通配符，必须使用'/'分割。与dex.pattern一致, 路径是相对安装包的，例如/assets/...
+             */
+            pattern = ["libs/*/*.so"] //指定so文件目录
+        }
+        res {
+            /**
+             * 需要处理res路径，支持*、?通配符，必须使用'/'分割。与dex.pattern一致, 路径是相对安装包的，例如/assets/...，
+             * 务必注意的是，只有满足pattern的资源才会放到合成后的资源包。
+             */
+            pattern = ["res/*", "assets/*", "resources.arsc", "AndroidManifest.xml"] //指定资源文件目录
+            /**
+             * 支持*、?通配符，必须使用'/'分割。若满足ignoreChange的pattern，在编译时会忽略该文件的新增、删除与修改。
+             * 最极端的情况，ignoreChange与上面的pattern一致，即会完全忽略所有资源的修改。
+             */
+            ignoreChange = ["assets/sample_meta.txt"] //指定不受影响的资源路径
+            /**
+             * 对于修改的资源，如果大于largeModSize，我们将使用bsdiff算法。这可以降低补丁包的大小，但是会增加合成
+             * 时的复杂度。默认大小为100kb
+             */
+            largeModSize = 100 //资源修改大小默认值
+        }
+        packageConfig {
+            /**
+             * configField("key", "value"), 默认我们自动从基准安装包与新安装包的Manifest中读取tinkerId,并自动
+             * 写入configField。在这里，你可以定义其他的信息，在运行时可以通过TinkerLoadResult.getPackageConfigByName得到相应的数值。但是建议直接通过修改代码来实现，例如BuildConfig。
+             */
+            configField("patchMessage", "fix the 1.0 version's bugs")
+            configField("platform", "all")
+            configField("patchVersion", "${patch_version}")
+        }
+
+        sevenZip {
+            /**
+             * 例如"com.tencent.mm:SevenZip:1.1.10"，将自动根据机器属性获得对应的7za运行文件，推荐使用
+             */
+            zipArtifact = "com.tencent.mm:SevenZip:1.1.10"
+        }
+
+        /**
+         *  文件名                              描述
+         *  patch_unsigned.apk                  没有签名的补丁包
+         *  patch_signed.apk                  签名后的补丁包
+         *  patch_signed_7zip.apk              签名后并使用7zip压缩的补丁包，也是我们通常使用的补丁包。但正式发布的时候，最好不要以.apk结尾，防止被运营商挟持。
+         *  log.txt                              在编译补丁包过程的控制台日志
+         *  dex_log.txt                          在编译补丁包过程关于dex的日志
+         *  so_log.txt                          在编译补丁包过程关于lib的日志
+         *  tinker_result                      最终在补丁包的内容，包括diff的dex、lib以及assets下面的meta文件
+         *  resources_out.zip                  最终在手机上合成的全量资源apk，你可以在这里查看是否有文件遗漏
+         *  resources_out_7z.zip              根据7zip最终在手机上合成的全量资源apk
+         *  tempPatchedDexes                  在Dalvik与Art平台，最终在手机上合成的完整Dex，我们可以在这里查看dex合成的产物。
+         * */
+    }
+
+    /**
+     * 复制apk包和其它必须文件到指定目录
+     */
+    android.applicationVariants.all { variant ->
+        /**
+         * task type, you want to bak
+         */
+        def taskName = variant.name
+        tasks.all {
+            if ("assemble${taskName.capitalize()}".equalsIgnoreCase(it.name)) {
+                it.doLast {
+                    copy {
+                        def fileNamePrefix = "${project.name}-${variant.baseName}"
+                        def newFileNamePrefix = "${newBaseName}-${variant.baseName}"
+                        from variant.outputs[0].outputFile
+                        into basePath
+                        rename { String fileName ->
+                            fileName.replace("${fileNamePrefix}.apk", "${newFileNamePrefix}.apk")
+                        }
+
+                        from "${buildDir}/outputs/mapping/r8/${variant.dirName}/mapping.txt"
+                        into basePath
+                        rename { String fileName ->
+                            fileName.replace("mapping.txt", "${newFileNamePrefix}-mapping.txt")
+                        }
+
+                        from "${buildDir}/intermediates/symbols/${variant.dirName}/R.txt"
+                        into basePath
+                        rename { String fileName ->
+                            fileName.replace("R.txt", "${newFileNamePrefix}-R.txt")
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

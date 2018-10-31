@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="base_recycler_view" type="id" />
+    <item name="base_sex_view" type="id" />
+    <item name="base_user_task_level" type="id" />
+
+    <item name="msg_tv_item_system_time" type="id"/>
+    <item name="msg_tv_item_system_content_layout" type="id"/>
+    <item name="msg_tv_item_system_title" type="id"/>
+    <item name="msg_tv_item_system_content" type="id"/>
+    <item name="msg_tv_item_system_image" type="id"/>
+
+    <item name="msg_tv_video_change_type" type="id"/>
+    <item name="msg_tv_video_hangup" type="id"/>
+    <item name="msg_tv_video_switch_camera" type="id"/>
+
+    <item name="tv_empty_slide" type="id"/>
+
+</resources>

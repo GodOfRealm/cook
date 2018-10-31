@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base_cl_head"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.miguan.youmi.core.widget.radius.RadiusImageView
+        android:id="@+id/base_iv_head"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.8"
+        app:rv_oval="true"
+        tools:src="@mipmap/comment_ic_no_one_avatar_female" />
+
+    <ImageView
+        android:id="@+id/base_iv_dress"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1:1"
+        tools:src="@mipmap/main_guide_image_2" />
+</android.support.constraint.ConstraintLayout>

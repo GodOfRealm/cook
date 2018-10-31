@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 标签布局 -->
+    <declare-styleable name="LabelLayoutView">
+        <attr name="llv_margin_left" format="dimension"/>
+        <attr name="llv_text_size" format="dimension"/>
+        <attr name="llv_text_width" format="dimension"/>
+        <attr name="llv_text_height" format="dimension"/>
+        <attr name="llv_text_color" format="color"/>
+        <attr name="llv_layoutbg" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="TagListLinearLayout">
+        <attr name="tlv_tag_width" format="dimension"/>
+        <attr name="tlv_tag_height" format="dimension"/>
+        <attr name="tlv_tag_padding_left" format="dimension"/>
+        <attr name="tlv_tag_padding_right" format="dimension"/>
+        <attr name="tlv_tag_padding_top" format="dimension"/>
+        <attr name="tlv_tag_padding_bottom" format="dimension"/>
+        <attr name="tlv_text_size" format="dimension"/>
+        <attr name="tlv_text_color" format="color"/>
+        <attr name="tlv_background_color" format="color"/>
+        <attr name="tlv_space" format="dimension"/>
+        <attr name="tlv_radius" format="dimension"/>
+    </declare-styleable>
+
+    <!-- 评价星星布局 -->
+    <declare-styleable name="EvaluationStarLayoutView">
+        <attr name="star_change" format="boolean"/>
+        <attr name="star_selected" format="reference"/>
+        <attr name="star_unselected" format="reference"/>
+        <attr name="star_selected_count" format="integer"/>
+        <attr name="star_space" format="dimension"/>
+        <attr name="star_width" format="dimension"/>
+        <attr name="star_height" format="dimension"/>
+    </declare-styleable>
+
+</resources>

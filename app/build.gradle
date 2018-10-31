@@ -1,0 +1,188 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'walle'
+//apply plugin: 'com.sensorsdata.analytics.android'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    defaultConfig {
+        applicationId APPLICATION_ID
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+        manifestPlaceholders = [
+                APPLICATION_RELEASE_ID  : applicationId,
+                JPUSH_PKGNAME           : applicationId,
+                JPUSH_APPKEY            : "e67abe3a14f30ad1e486a7f4", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL           : "developer-default", //暂时填写默认值即可.
+                RONG_CLOUD_APP_KEY_VALUE: "8w7jv4qb82epy",//融云开发环境appkey
+                UMENG_APPKEY_VALUE      : "5b3db8b88f4a9d740d000071"//友盟
+        ]
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias 'mimi'
+            keyPassword 'Wafdqq00'
+            storeFile file('../doc/mimi.jks')
+            storePassword 'Wafdqq00'
+        }
+
+        release {
+            keyAlias 'mimi'
+            keyPassword 'Wafdqq00'
+            storeFile file('../doc/mimi.jks')
+            storePassword 'Wafdqq00'
+        }
+    }
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "USE_CANARY", "true"
+            buildConfigField "boolean", "IS_PREVIEW", "false"
+            minifyEnabled false
+            shrinkResources false //不打包没有使用资源
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            addManifestPlaceholders([
+                    PICK_APP_KEY: "tAjJ7Rbs"
+            ])
+
+        }
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false" // 是否打印LOG
+            buildConfigField "boolean", "USE_CANARY", "false"
+            buildConfigField "boolean", "IS_PREVIEW", "false"
+            minifyEnabled true
+            shrinkResources true //不打包没有使用资源
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+
+            addManifestPlaceholders([
+                    RONG_CLOUD_APP_KEY_VALUE: "82hegw5u8yf6x",//融云生产环境appkey
+                    PICK_APP_KEY            : "tAjJ7Rbs",
+            ])
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            res.srcDirs = listSubFile()
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+//布局文件按模块分类
+def listSubFile() {
+    def resFolder = 'src/main/res/layout'
+    def files = file(resFolder).listFiles()
+    def folders = []
+    folders.add(file(resFolder).parentFile.absolutePath)
+    files.each {
+        item ->
+            if (item.isDirectory()) {
+                folders.add(item.absolutePath)
+            }
+    }
+    return folders
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':umeng')
+    implementation project(':libAlum')
+    implementation rootProject.ext.dependencies["rxcache2"]
+    implementation rootProject.ext.dependencies["cardview"]
+//    implementation 'com.android.support:support-v4:27.1.1'
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
+    //滚动选择器  https://github.com/Bigkoo/Android-PickerView
+    implementation rootProject.ext.dependencies["pickerview"]
+    implementation rootProject.ext.dependencies["multidex"]
+    //https://github.com/chrisbanes/PhotoView
+    implementation rootProject.ext.dependencies["photoview"]
+    // 阿里路由
+    api 'com.alibaba:arouter-api:1.3.1'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    //jpush
+    implementation 'cn.jiguang.sdk:jpush:3.1.5'  // 此处以JPush 3.1.5 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:1.2.3'  // 此处以JCore 1.2.3 版本为例。
+    //walle
+    implementation 'com.meituan.android.walle:library:1.1.6'
+    // webview
+    implementation 'com.just.agentweb:agentweb:4.0.2'
+    // (必选)
+    //tinker热更新  https://github.com/Tencent/tinker
+    implementation 'com.tencent.tinker:tinker-android-lib:1.9.8'
+    //轮播控件：ViewPager  https://github.com/alibaba/UltraViewPager
+    implementation('com.alibaba.android:ultraviewpager:1.0.7.7@aar') {
+        transitive = true
+    }
+    //动画  https://github.com/airbnb/lottie-android
+    implementation 'com.airbnb.android:lottie:2.5.5'
+    // TabLayout
+    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    //流布局
+    api 'com.google.android:flexbox:1.0.0'
+    // 七牛上传文件 https://developer.qiniu.com/kodo/sdk/1236/android
+    api 'com.qiniu:qiniu-android-sdk:7.3.12'
+    // 环形进度条 https://github.com/lzyzsd/CircleProgress
+    api 'com.github.lzyzsd:circleprogress:1.2.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // 划一划 https://github.com/JerryChan123/ReSwipeCard
+
+    //悬浮框  https://github.com/yhaolpz/FloatWindow
+    //implementation 'com.github.yhaolpz:FloatWindow:1.0.9'
+
+    implementation 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:2.1.1'
+    implementation "com.github.yyued:SVGAPlayer-Android:$svga_version"
+     //圆角相关
+    implementation 'com.noober.background:core:1.3.0'
+
+
+    // @see https://developer.android.com/kotlin/ktx#core-packages
+//    implementation "androidx.core:core-ktx:$core_ktx"
+}
+
+walle {
+    apkOutputFolder = new File("${project.buildDir}/outputs/channels")
+    apkFileNameFormat = '${channel}-${versionName}-${versionCode}-${buildType}.apk'
+    //configFile与channelFile两者必须存在一个，否则无法生成渠道包。两者都存在时优先执行configFile
+    channelFile = new File("${project.getProjectDir()}/channel")
+}
+
+//引入tinker热更新
+apply from: 'tinker.gradle'
+repositories {
+    mavenCentral()
+}

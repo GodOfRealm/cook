@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/user_bg_radius_feedback_input">
+
+
+    <ImageView
+        android:id="@+id/add_image_view_iv_add"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:clickable="false"
+        android:src="@mipmap/user_ic_add_feedback"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.miguan.youmi.core.widget.radius.RadiusImageView
+        android:scaleType="centerCrop"
+        android:id="@+id/add_image_view_iv_picture"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:rv_corner_radius="5dp"
+       />
+
+    <ImageView
+        android:id="@+id/add_image_view_iv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@mipmap/user_ic_delete_feedback"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

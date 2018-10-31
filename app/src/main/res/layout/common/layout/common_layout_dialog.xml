@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/common_bg_dialog"
+    android:minHeight="134dp"
+    >
+
+    <TextView
+        android:id="@+id/common_tv_common_dialog_content"
+        android:layout_width="@dimen/dialog_width"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingBottom="38dp"
+        android:paddingLeft="@dimen/spacing_normal"
+        android:paddingRight="@dimen/spacing_normal"
+        android:paddingTop="36dp"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/text_size_subhead2"
+        app:layout_constraintEnd_toEndOf="@+id/common_v_common_dialog_line_horizontal"
+        app:layout_constraintStart_toStartOf="@+id/common_v_common_dialog_line_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="存在尚未保存的内容哦，退出后将被清空，是否确定放弃保存？"
+        />
+
+    <View
+        android:id="@+id/common_v_common_dialog_line_horizontal"
+        style="@style/DividerTheme"
+        android:layout_width="@dimen/dialog_width"
+        android:layout_marginStart="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/common_tv_common_dialog_content"
+        />
+
+    <TextView
+        android:id="@+id/common_tv_common_dialog_left"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="@string/confirm"
+        android:textColor="@color/color_text_666666"
+        android:textSize="@dimen/text_size_subhead2"
+        android:background="@drawable/common_bg_dialog_left"
+        app:layout_constraintEnd_toStartOf="@+id/common_tv_common_dialog_right"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/common_v_common_dialog_line_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/common_v_common_dialog_line_vertical"
+        android:layout_width="1dp"
+        android:layout_height="45dp"
+        android:background="@color/colorWindowBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/common_v_common_dialog_line_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/common_tv_common_dialog_right"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/color_fcbe00"
+        android:textSize="@dimen/text_size_subhead2"
+        android:background="@drawable/common_bg_dialog_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/common_tv_common_dialog_left"
+        app:layout_constraintTop_toBottomOf="@+id/common_v_common_dialog_line_horizontal"
+        />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--以下配置，需要在使用的app内指定-->
+
+    <!--drawables-->
+    <attr name="iconEmpty" format="reference"/>
+    <attr name="iconBack" format="reference"/>
+
+    <!--strings-->
+    <attr name="textEmpty" format="string|reference"/>
+
+    <!--colors-->
+    <attr name="colorTextGray" format="color|reference"/>
+
+
+</resources>

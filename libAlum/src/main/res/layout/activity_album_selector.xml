@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/base_include_status_bar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        >
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/common_ic_back_arrow"
+            android:visibility="visible"
+            />
+
+        <Button
+            android:id="@+id/btn_select"
+            style="@style/ToolbarTitleTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:onClick="select"
+            tools:text="所有图片"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/btn_select"
+            android:background="@mipmap/pic_arrow_down_white"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom"
+            android:horizontalSpacing="4dp"
+            android:numColumns="4"
+            android:padding="4dp"
+            android:scrollbars="none"
+            android:verticalSpacing="4dp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="#f5ffffff"
+            >
+
+            <TextView
+                android:id="@+id/album_tv_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="20dp"
+                android:text="预览"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="15sp"
+                android:visibility="gone"
+                />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                >
+
+                <com.miguan.youmi.core.widget.radius.RadiusTextView
+                    android:id="@+id/ok"
+                    android:layout_width="75dp"
+                    android:layout_height="33dp"
+                    android:gravity="center"
+                    android:text="确定"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="14sp"
+                    app:rv_backgroundColor="@color/colorPrimary"
+                    app:rv_radius="3dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/select_picture_num_bg"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    tools:text="0"
+                    />
+
+            </FrameLayout>
+
+            <CheckedTextView
+                android:id="@+id/original_check"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/bg_image_checkbox"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="原图"
+                android:textColor="@color/color_3e3e3e"
+                android:textSize="15sp"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom"
+            android:background="@color/white"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

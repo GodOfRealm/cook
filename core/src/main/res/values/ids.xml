@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    // 任务栏相关
+    <item name="base_toolbar" type="id"/>
+    <item name="base_toolbar_back" type="id"/>
+    <item name="base_toolbar_title" type="id"/>
+    <item name="base_toolbar_right" type="id"/>
+    <item name="base_toolbar_text_right" type="id"/>
+    <item name="base_status_bar" type="id"/>
+
+    //recycle item 分割线
+    <item name="base_recycler_item_divider" type="id" />
+    <item name="tag_position" type="id" />
+</resources>
