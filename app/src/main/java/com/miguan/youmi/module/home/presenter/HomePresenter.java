@@ -4,7 +4,6 @@ import android.app.Application;
 
 import com.jess.arms.integration.AppManager;
 import com.jess.arms.di.scope.FragmentScope;
-import com.miguan.pick.bean.home.Data;
 import com.jess.arms.http.imageloader.ImageLoader;
 
 import javax.inject.Inject;
@@ -15,6 +14,7 @@ import com.miguan.youmi.module.home.contract.HomeContract;
 import java.util.List;
 
 import io.reactivex.Observable;
+import io.reactivex.Observer;
 
 @FragmentScope
 public class HomePresenter extends BaseListPresenter<Object, HomeContract.Model, HomeContract.View<Object>> {
@@ -30,7 +30,12 @@ public class HomePresenter extends BaseListPresenter<Object, HomeContract.Model,
 
     @Override
     protected Observable<List<Object>> provideRequestObservable(int page) {
-        return null; // mModel.getUser(page);
+        return new Observable<List<Object>>() {
+            @Override
+            protected void subscribeActual(Observer<? super List<Object>> observer) {
+
+            }
+        };
     }
 
     @Override

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="AppTheme.Base">
@@ -65,5 +65,38 @@
         <item name="rv_strokeColor">@color/color_ffcb2c</item>
         <item name="rv_strokeWidth">1dp</item>
     </style>
+    <!-- 主色调渐变 -->
+    <style name="mainColorGradientStyle">
+        <item name="bl_gradient_angle">0</item>
+        <item name="bl_gradient_endColor">@color/color_ff6f1d</item>
+        <item name="bl_gradient_centerColor">@color/color_ff6f1d</item>
+        <item name="bl_gradient_startColor">@color/color_ffb041</item>
+    </style>
+    <!-- 主页顶部标签样式 -->
+    <style name="homeHeadTagStyle">
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="bl_corners_radius">1dp</item>
+        <item name="bl_solid_color">@color/white</item>
+        <item name="bl_stroke_color">@color/color_cccccc</item>
+        <item name="bl_stroke_width">1dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_cccccc</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+    <!-- 主页banner底下四个item的样式 -->
+    <style name="homeBannerBottomItemStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:drawablePadding">11dp</item>
+    </style>
 
+    <!-- 统一空格间距 -->
+    <style name="commonSpaceStyle">
+        <item name="android:layout_height">@dimen/spacing_mini</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/color_efeff4</item>
+    </style>
 </resources>

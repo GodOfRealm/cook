@@ -25,6 +25,7 @@ import com.miguan.youmi.module.main.presenter.MainPresenter;
 
 import com.miguan.youmi.R;
 import com.miguan.youmi.util.EventBusUtil;
+import com.noober.background.BackgroundLibrary;
 
 import java.util.ArrayList;
 

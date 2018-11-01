@@ -24,6 +24,7 @@ import com.miguan.youmi.app.constant.ExtraConstant;
 import com.miguan.youmi.app.overlay.IViewConfig;
 import com.miguan.youmi.core.notch.Notch;
 import com.miguan.youmi.core.notch.NotchUtil;
+import com.noober.background.BackgroundLibrary;
 import com.umeng.analytics.MobclickAgent;
 
 import cn.jpush.android.api.JPushInterface;
@@ -90,6 +91,7 @@ public class ActivityLifecycleCallbacksImp implements Application.ActivityLifecy
             initToolbar(activity, viewConfig);
             initStatusBar(activity, viewConfig);
             activity.getIntent().putExtra(ExtraConstant.ACTIVITY_CONFIG, viewConfig);
+
         }
     }
 

@@ -198,7 +198,6 @@
         <activity
             android:name=".module.skill.ui.activity.SkillCategoryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/skill_category_title"
             android:screenOrientation="portrait" />
         <activity
             android:name=".module.chat.ui.activity.ChatRoomListActivity"

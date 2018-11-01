@@ -7,7 +7,6 @@ import dagger.Provides;
 
 import com.miguan.youmi.module.home.contract.HomeContract;
 import com.miguan.youmi.module.home.model.HomeModel;
-import com.miguan.pick.bean.home.Data;
 
 
 @Module

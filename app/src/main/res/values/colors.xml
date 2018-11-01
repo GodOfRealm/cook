@@ -14,4 +14,11 @@
     <color name="color_bg_bottom">#f5ffffff</color>
     <color name="color_text_tab">#959595</color>
     <color name="color_f0f0f0">#f0f0f0</color>
+    <color name="color_ffb041">#ffb041</color>
+    <color name="color_ff6f1d">#ff6f1d</color>
+    <color name="color_f5f5f5">#f5f5f5</color>
+    <color name="color_cccccc">#cccccc</color>
+    <color name="color_efeff4">#efeff4</color>
+    <color name="color_acb8c8">#acb8c8</color>
+    <color name="color_ffefc0">#ffefc0</color>
 </resources>

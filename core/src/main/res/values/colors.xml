@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ffffdd00</color><!-- 应用主色调 -->
+    <color name="colorPrimary">#ffa000</color><!-- 应用主色调 -->
     <color name="colorPrimaryDark">#fcbe00</color><!-- 比较深的主色调，一般用做按钮点击 -->
     <color name="colorAccent">#ff1b1b1b</color><!-- 强调色，一般是按钮、光标等的颜色-->
     <color name="colorWindowBackground">#fff4f3f2</color><!-- 全局窗口背景色 -->

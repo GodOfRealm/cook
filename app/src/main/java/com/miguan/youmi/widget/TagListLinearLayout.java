@@ -93,7 +93,7 @@ public class TagListLinearLayout<T> extends LinearLayout {
         mTagPaddingBottom = (int) ta.getDimension(R.styleable.TagListLinearLayout_tlv_tag_padding_bottom, 0);
         mTextColor = ta.getColor(R.styleable.TagListLinearLayout_tlv_text_color, defaultTextColor);
         mTextSize = ta.getDimension(R.styleable.TagListLinearLayout_tlv_text_size, defaultTextSize);
-        mBackgroundColor = ta.getResourceId(R.styleable.TagListLinearLayout_tlv_background_color, defaultBackground);
+        mBackgroundColor = ta.getColor(R.styleable.TagListLinearLayout_tlv_background_color, defaultBackground);
         mSpace = ta.getDimension(R.styleable.TagListLinearLayout_tlv_space, defaultMarginLeft);
         mRadius = (int) ta.getDimension(R.styleable.TagListLinearLayout_tlv_radius, SizeUtils.dp2px(5));
         ta.recycle();

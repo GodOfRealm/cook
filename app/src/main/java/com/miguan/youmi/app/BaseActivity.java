@@ -42,6 +42,7 @@ import com.miguan.youmi.app.overlay.DefaultViewExpansionDelegate;
 import com.miguan.youmi.app.overlay.IViewConfig;
 import com.miguan.youmi.app.overlay.ViewExpansionDelegate;
 import com.miguan.youmi.core.util.PickToast;
+import com.noober.background.BackgroundLibrary;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 
 import javax.inject.Inject;
@@ -145,6 +146,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        BackgroundLibrary.inject(this);//只能写在这里，要在super.onCreate(savedInstanceState);之前执行
         super.onCreate(savedInstanceState);
         try {
             int layoutResID = initView(savedInstanceState);

@@ -1,6 +1,7 @@
 package com.miguan.youmi.app;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 
 import com.jess.arms.base.App;
@@ -26,7 +27,7 @@ import com.tencent.tinker.loader.shareutil.ShareConstants;
 public class PickApplication extends TinkerApplication implements App {
 
     private AppLifecycles mAppDelegate;
-
+    private Typeface typeface;
     private static PickApplication sApplication;
 
     /**
@@ -66,6 +67,8 @@ public class PickApplication extends TinkerApplication implements App {
         if (mAppDelegate != null) {
             this.mAppDelegate.onCreate(this);
         }
+        typeface = Typeface.createFromAsset(sApplication.getAssets(), "fonts/DINMittelschrift.otf");//下载的字体
+
     }
 
     /**
@@ -78,7 +81,9 @@ public class PickApplication extends TinkerApplication implements App {
             this.mAppDelegate.onTerminate(this);
         }
     }
-
+    public Typeface getTypeface() {
+        return typeface;
+    }
     /**
      * 将 {@link AppComponent} 返回出去, 供其它地方使用, {@link AppComponent} 接口中声明的方法所返回的实例, 在 {@link #getAppComponent()} 拿到对象后都可以直接使用
      *

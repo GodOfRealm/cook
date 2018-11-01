@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    tools:ignore="MissingPrefix">
+
+    <ImageView
+        android:id="@+id/home_recyele_credit_item_iv_icon"
+        android:layout_width="104dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:scaleType="fitXY"
+        android:background="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/home_recyele_credit_item_tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="YOUNG卡（青年版）"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/text_size_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/home_recyele_credit_item_iv_icon"
+        app:layout_constraintTop_toTopOf="@+id/home_recyele_credit_item_iv_icon" />
+
+    <TextView
+        android:id="@+id/home_recyele_credit_item_center_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="消费享双倍积分 现金分期7折优惠"
+        android:textColor="@color/colorTextTertiary"
+        android:textSize="@dimen/text_size_caption"
+        app:layout_constraintStart_toStartOf="@id/home_recyele_credit_item_tv_title"
+        app:layout_constraintTop_toBottomOf="@id/home_recyele_credit_item_tv_title" />
+
+    <com.miguan.youmi.core.widget.radius.RadiusTextView
+        android:id="@+id/home_recyele_credit_item_bottom_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingTop="2dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="2dp"
+        android:text="开卡送50元支付券"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_caption"
+        app:layout_constraintBottom_toBottomOf="@id/home_recyele_credit_item_iv_icon"
+        app:layout_constraintStart_toStartOf="@id/home_recyele_credit_item_tv_title"
+        app:rv_backgroundColor="@color/color_f5f5f5"
+        app:rv_radius="1dp" />
+
+    <View
+        style="@style/DividerTheme"
+        android:layout_width="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/home_recyele_credit_item_iv_icon"></View>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_f5f5f5">
+
+    <ImageView
+        android:id="@+id/home_head_iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/home_bg_head"
+        android:scaleType="fitXY" />
+
+    <com.miguan.youmi.widget.tablayout.SlidingTabLayout
+        android:id="@+id/home_head_menu"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_head_iv_bg"
+        app:tl_iconVisible="false"
+        app:tl_indicator_color="@color/white"
+        app:tl_indicator_corner_radius="1.5dp"
+        app:tl_indicator_height="3dp"
+        app:tl_indicator_margin_bottom="4.5dp"
+        app:tl_indicator_width="15dp"
+        app:tl_tab_space_equal="true"
+        app:tl_textBold="NONE"
+        app:tl_textSelectColor="@color/white"
+        app:tl_textSelectSize="17dp"
+        app:tl_textUnselectColor="@color/white"
+        app:tl_textUnselectSize="14dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_head_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_fragment_head_vp_height"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/home_head_menu" />
+
+    <ImageView
+        android:id="@+id/home_head_iv_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        android:src="@mipmap/home_ic_notice"
+        app:layout_constraintStart_toStartOf="@id/home_head_viewPager"
+        app:layout_constraintTop_toBottomOf="@+id/home_head_viewPager" />
+
+    <com.miguan.youmi.widget.VerticalTextview
+        android:id="@+id/home_head_vtv_switch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8.5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/home_head_iv_notice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/home_head_iv_notice"
+        app:layout_constraintTop_toTopOf="@+id/home_head_iv_notice"></com.miguan.youmi.widget.VerticalTextview>
+
+    <View
+        style="@style/commonSpaceStyle"
+        app:layout_constraintTop_toBottomOf="@+id/home_head_iv_notice"></View>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/home_head_iv_notice">
+
+        <com.tmall.ultraviewpager.UltraViewPager
+            android:id="@+id/home_head_vp_banner"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            app:layout_constraintEnd_toStartOf="@+id/home_head_tv_load"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/home_head_tv_invit"
+            style="@style/homeBannerBottomItemStyle"
+            android:layout_marginTop="14dp"
+            android:drawableTop="@mipmap/home_ic_invite"
+            android:paddingBottom="13dp"
+            android:text="@string/home_invit"
+            app:layout_constraintTop_toBottomOf="@+id/home_head_vp_banner" />
+
+        <TextView
+            app:layout_constraintStart_toEndOf="@+id/home_head_tv_invit"
+            app:layout_constraintEnd_toStartOf="@+id/home_head_tv_credit"
+            android:id="@+id/home_head_tv_load"
+            style="@style/homeBannerBottomItemStyle"
+            android:drawableTop="@mipmap/home_ic_load"
+            android:text="@string/home_load"
+            app:layout_constraintTop_toTopOf="@+id/home_head_tv_invit" />
+
+        <TextView
+            app:layout_constraintStart_toEndOf="@+id/home_head_tv_load"
+            app:layout_constraintEnd_toStartOf="@+id/home_head_tv_guide"
+            android:id="@+id/home_head_tv_credit"
+            style="@style/homeBannerBottomItemStyle"
+            android:drawableTop="@mipmap/home_ic_credit"
+            android:text="@string/home_load"
+            app:layout_constraintTop_toTopOf="@+id/home_head_tv_invit" />
+
+        <TextView
+            app:layout_constraintStart_toEndOf="@+id/home_head_tv_credit"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/home_head_tv_guide"
+            style="@style/homeBannerBottomItemStyle"
+            android:drawableTop="@mipmap/home_ic_guide"
+            android:text="@string/home_load"
+            app:layout_constraintTop_toTopOf="@+id/home_head_tv_invit" />
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

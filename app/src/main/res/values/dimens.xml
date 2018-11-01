@@ -46,4 +46,8 @@
     <dimen name="main_tab_icon_size_height">25dp</dimen>//首页底部菜单高度
     <dimen name="main_tab_icon_size_width">30dp</dimen>//首页底部菜单高度
     <dimen name="main_tab_txt_size">11dp</dimen>//首页底部菜单文字大小
+    <dimen name="bdp_4">4dp</dimen>
+    // homeFragment
+    <dimen name="home_fragment_head_vp_height">260dp</dimen>
+
 </resources>

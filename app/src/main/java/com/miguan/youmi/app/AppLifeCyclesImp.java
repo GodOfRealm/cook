@@ -65,7 +65,6 @@ public class AppLifeCyclesImp implements AppLifecycles {
         }
         initHandleListener(application);
         PickUtils.init(application);
-        BackgroundLibrary.inject(application);
 //        initCanary(application);
         initLog();
         initARouter(application);
