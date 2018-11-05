@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="30dp"
+    android:paddingBottom="18dp">
+
+    <ImageView
+        android:id="@+id/repayment_recyele_empty_credit_iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="155dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37.5dp"
+        android:text="@string/repayment_empty_message"
+        android:textColor="@color/color_text_666666"
+        android:textSize="@dimen/text_size_subhead"
+        app:layout_constraintEnd_toEndOf="@+id/repayment_recyele_empty_credit_iv_bg"
+        app:layout_constraintStart_toStartOf="@+id/repayment_recyele_empty_credit_iv_bg"
+        app:layout_constraintTop_toTopOf="@+id/repayment_recyele_empty_credit_iv_bg" />
+
+    <com.miguan.youmi.core.widget.radius.RadiusTextView
+        android:id="@+id/repayment_recyele_empty_credit_tv_action"
+        android:layout_width="264dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="@+id/repayment_recyele_empty_credit_iv_bg"
+        app:layout_constraintStart_toStartOf="@+id/repayment_recyele_empty_credit_iv_bg"
+        app:layout_constraintTop_toTopOf="@+id/repayment_recyele_empty_credit_iv_bg"
+        app:rv_backgroundColor="@color/colorPrimary"
+        app:rv_radius="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/home_ic_notice"
+        android:drawablePadding="6dp"
+        android:text="@string/repayment_add"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_subhead"
+        app:layout_constraintBottom_toBottomOf="@id/repayment_recyele_empty_credit_tv_action"
+        app:layout_constraintEnd_toEndOf="@id/repayment_recyele_empty_credit_tv_action"
+        app:layout_constraintStart_toStartOf="@id/repayment_recyele_empty_credit_tv_action"
+        app:layout_constraintTop_toTopOf="@id/repayment_recyele_empty_credit_tv_action" />
+</android.support.constraint.ConstraintLayout>

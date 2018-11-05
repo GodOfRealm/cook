@@ -14,10 +14,11 @@ import com.blankj.utilcode.util.SizeUtils;
 import com.jess.arms.di.component.AppComponent;
 
 import com.miguan.youmi.R;
+import com.miguan.youmi.app.ViewConfig;
 import com.miguan.youmi.app.base.BaseListFragment;
 import com.miguan.youmi.app.base.EmptyView;
 import com.miguan.youmi.bean.home.Banner;
-import com.miguan.youmi.bean.home.HomeCreditRecommendBean;
+import com.miguan.youmi.bean.home.HomeCreditRecommendListBean;
 import com.miguan.youmi.bean.home.HomeHotRecommendBean;
 import com.miguan.youmi.core.base.BaseAdapter;
 import com.miguan.youmi.core.base.BaseMixAdapter;
@@ -69,6 +70,8 @@ public class HomeFragment extends BaseListFragment<Object, HomePresenter> implem
                 .build()
                 .inject(this);
     }
+
+
 
     @Override
     public void begin() {
@@ -127,7 +130,7 @@ public class HomeFragment extends BaseListFragment<Object, HomePresenter> implem
         ultraViewPager.setAutoScroll(3000);
         ultraViewPager.setInfiniteLoop(true);
         mAdapter.addData(new HomeHotRecommendBean());
-        mAdapter.addData(new HomeCreditRecommendBean());
+        mAdapter.addData(new HomeCreditRecommendListBean());
     }
 
     @Override
@@ -148,5 +151,10 @@ public class HomeFragment extends BaseListFragment<Object, HomePresenter> implem
         baseMixAdapter.addItemPresenter(new HomeHotRecommend());
         baseMixAdapter.addItemPresenter(new HomeCreditRecommend());
         return baseMixAdapter;
+    }
+
+    @Override
+    public ViewConfig getViewConfig() {
+        return super.getViewConfig().setStatusBarColor(R.color.colorPrimary);
     }
 }

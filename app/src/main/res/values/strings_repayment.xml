@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="repayment_empty_message">您还没有添加信用卡哦</string>
+    <string name="repayment_add">立即添加</string>
+    <string name="repayment_guide">还款指南</string>
+    <string name="repayment_help">帮助中心</string>
+    <string name="repayment_information">了解详情 轻松还款</string>
+    <string name="repayment_step">简单几步 操作便捷</string>
+    <string name="repayment_repatment">立即还款</string>
+    <string name="repayment_credit_message">天后到账</string>
+    <string name="repayment_credit_repayment_date">还款日</string>
+</resources>

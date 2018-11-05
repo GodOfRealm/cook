@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/base_status_bar"
+        layout="@layout/base_include_status_bar"></include>
+
+    <!--&lt;!&ndash;webActivity 布局文件需要一起修改!!!!!!!!&ndash;&gt;-->
+    <android.support.v7.widget.Toolbar
+    android:id="@id/base_toolbar"
+    style="@style/ToolbarTheme"
+    android:background="@color/colorPrimary"
+    >
+
+    <ImageView
+    android:visibility="gone"
+    android:id="@id/base_toolbar_back"
+    android:layout_width="42dp"
+    android:layout_height="match_parent"
+    android:background="?attr/selectableItemBackground"
+    android:scaleType="centerInside"
+    android:src="@mipmap/common_ic_back_arrow"
+    />
+
+    <TextView
+    style="@style/ToolbarTitleTheme"
+    android:textColor="@color/white"
+    android:textSize="17dp"
+    android:text="还款"
+    />
+
+    <ImageView
+    android:id="@id/base_toolbar_right"
+    android:layout_width="?attr/actionBarSize"
+    android:layout_height="match_parent"
+    android:layout_gravity="end"
+    android:background="?attr/selectableItemBackground"
+    android:padding="8dp"
+    android:scaleType="centerInside"
+    />
+
+    <TextView
+    style="@style/ToolbarRightTextTheme"
+    />
+
+    </android.support.v7.widget.Toolbar>
+    <!--列表-->
+    <include
+        layout="@layout/base_layout_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -95,18 +95,18 @@
         app:layout_constraintStart_toStartOf="@id/home_balance_iv_add_credit"
         app:layout_constraintTop_toTopOf="@id/home_balance_iv_identity" />
 
-    <TextView
+    <com.miguan.youmi.core.widget.radius.RadiusTextView
         android:id="@+id/home_balance_iv_action"
-        style="@style/mainColorGradientStyle"
         android:layout_width="264dp"
         android:layout_height="48dp"
         android:layout_marginBottom="32.5dp"
-        android:background="@color/color_f0f0f0"
+        android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="@string/home_get_limit"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_subhead"
-        app:bl_corners_radius="24dp"
+        app:rv_backgroundColor="@color/colorPrimary"
+        app:rv_radius="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

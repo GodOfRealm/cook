@@ -5,5 +5,5 @@ package com.miguan.youmi.bean.home;
  * 功能描述:
  * 备注:
  */
-public class HomeCreditRecommendBean {
+public class HomeCreditRecommendListBean {
 }
