@@ -12,6 +12,8 @@ import com.jess.arms.di.component.AppComponent;
 import com.miguan.youmi.R;
 import com.miguan.youmi.app.BaseFragment;
 
+import butterknife.OnClick;
+
 /**
  * 作者: zws 2018/10/31 0031 16:17
  * 功能描述:首页余额代偿
@@ -37,5 +39,14 @@ public class BalanceFragment extends BaseFragment {
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
 
+    }
+    @OnClick({R.id.home_balance_iv_action})
+    public void viewOnclicked(View view) {
+        switch (view.getId()) {
+            case R.id.home_balance_iv_action:
+                getNavigator().getRepaymentNavigator().openSelectBankActivity();
+                break;
+
+        }
     }
 }

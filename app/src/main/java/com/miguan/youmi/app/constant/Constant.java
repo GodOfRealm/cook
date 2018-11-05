@@ -66,4 +66,8 @@ public interface Constant {
      * 下载
      */
     String DOWNLOAD_PATH = OUTPUT_DIR + "/Download/";
+    /**
+     * 数字字体
+     */
+    String TYPEFACE = "fonts/DINMittelschrift.otf";
 }

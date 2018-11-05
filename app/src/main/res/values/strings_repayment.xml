@@ -9,4 +9,15 @@
     <string name="repayment_repatment">立即还款</string>
     <string name="repayment_credit_message">天后到账</string>
     <string name="repayment_credit_repayment_date">还款日</string>
+    <string name="repayment_select_model_message">请选择代偿模式</string>
+    <string name="repayment_select_model_my_credit">余额代偿-本卡</string>
+    <string name="repayment_select_model_my_credit_message">使用本信用卡的余额进行分次还款</string>
+    <string name="repayment_select_model_other_credit">余额代偿-他卡</string>
+    <string name="repayment_select_model_other_credit_message">使用另一张信用卡的额度为本卡还款</string>
+    <string name="repayment_select_model_credit">信用代偿</string>
+    <string name="repayment_select_model_credit_message">通过信用评估，快速出额，极速借钱</string>
+    <string name="repayment_select_model_bottom_message">使用银行级数字加密</string>
+    <string name="repayment_credit_positive">信用卡正面（示例）</string>
+    <string name="repayment_credit_side">信用卡背面（示例）</string>
+
 </resources>

@@ -106,7 +106,7 @@
     <!-- 蓝色通用渐变 -->
     <style name="CommonBlueColorGradientStyle">
         <item name="bl_gradient_angle">0</item>
-        <item name="bl_gradient_endColor">@color/color_719eff</item>
-        <item name="bl_gradient_startColor">@color/color_0e5bfe</item>
+        <item name="bl_gradient_endColor">@color/color_0e5bfe</item>
+        <item name="bl_gradient_startColor">@color/color_719eff</item>
     </style>
 </resources>

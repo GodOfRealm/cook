@@ -36,7 +36,7 @@
 
     <!--Common-->
     <dimen name="common_search_layout_height">45dp</dimen>
-    <dimen name="common_radius">10dp</dimen> <!-- 通用圆角 -->
+    <dimen name="common_radius">5dp</dimen> <!-- 通用圆角 -->
     <dimen name="dialog_width">260dp</dimen><!--dialog 宽度-->
 
     <dimen name="age_level_icon_margin">6dp</dimen><!--年龄与等级icon的间距-->

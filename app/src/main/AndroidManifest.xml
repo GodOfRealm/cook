@@ -566,6 +566,12 @@
             android:name=".module.order.ui.activity.SendOrderActivity"
             android:label="派单中心"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.repayment.ui.activity.select_bankActivity"
+            android:label="支持银行" />
+        <activity
+            android:name=".module.repayment.ui.activity.SelectBankActivity"
+            android:label="支持银行" />
     </application>
 
 </manifest>

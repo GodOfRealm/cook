@@ -10,6 +10,7 @@ import com.jess.arms.base.delegate.AppLifecycles;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 import com.jess.arms.utils.Preconditions;
+import com.miguan.youmi.app.constant.Constant;
 import com.miguan.youmi.tinker.TinkerApplicationLike;
 import com.tencent.tinker.loader.app.TinkerApplication;
 import com.tencent.tinker.loader.shareutil.ShareConstants;
@@ -67,7 +68,7 @@ public class PickApplication extends TinkerApplication implements App {
         if (mAppDelegate != null) {
             this.mAppDelegate.onCreate(this);
         }
-        typeface = Typeface.createFromAsset(sApplication.getAssets(), "fonts/DINMittelschrift.otf");//下载的字体
+        typeface = Typeface.createFromAsset(sApplication.getAssets(), Constant.TYPEFACE);//下载的字体
 
     }
 

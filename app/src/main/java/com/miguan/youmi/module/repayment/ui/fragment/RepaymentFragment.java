@@ -24,8 +24,10 @@ import com.miguan.youmi.module.repayment.contract.RepaymentContract;
 import com.miguan.youmi.module.repayment.presenter.RepaymentPresenter;
 import com.miguan.youmi.module.repayment.ui.adapter.RepaymentCredit;
 import com.miguan.youmi.module.repayment.ui.adapter.RepaymentEmptyCredit;
+import com.miguan.youmi.module.repayment.ui.dialog.SafeCodeDemoDialog;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 
 /**
@@ -64,7 +66,6 @@ public class RepaymentFragment extends BaseListFragment<Object, RepaymentPresent
     }
 
 
-
     @Override
     public View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.repayment_fragment, container, false);
@@ -75,8 +76,8 @@ public class RepaymentFragment extends BaseListFragment<Object, RepaymentPresent
         //底部
         View top = LayoutInflater.from(getContext()).inflate(R.layout.repayment_foot_layput, getRootView(), false);
         mAdapter.addFooterView(top);
-        mAdapter.addData("1");
-//        mAdapter.addData(new RepaymentCreditListBean());
+//        mAdapter.addData("1");
+        mAdapter.addData(new RepaymentCreditListBean());
         setLoadMoreEnable(false);
         setRefreshEnable(false);
     }
@@ -86,6 +87,16 @@ public class RepaymentFragment extends BaseListFragment<Object, RepaymentPresent
         emptyView.setEmptyText("没有相关数据哦~")
                 .setEmptyImageResource(R.mipmap.ic_launcher)
                 .setRetryText("重试");
+    }
+
+    @OnClick({R.id.base_toolbar_title})
+    public void viewOnclicked(View view) {
+        switch (view.getId()) {
+            case R.id.base_toolbar_title:
+
+                break;
+
+        }
     }
 
     @Override
