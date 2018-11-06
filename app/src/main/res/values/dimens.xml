@@ -49,5 +49,5 @@
     <dimen name="bdp_4">4dp</dimen>
     // homeFragment
     <dimen name="home_fragment_head_vp_height">260dp</dimen>
-
+    <dimen name="common_title_height">40dp</dimen>
 </resources>

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.jess.arms.di.component.AppComponent;
 import com.miguan.youmi.R;
 import com.miguan.youmi.app.BaseFragment;
+import com.miguan.youmi.module.repayment.RepaymentType;
 
 import butterknife.OnClick;
 
@@ -40,13 +41,16 @@ public class BalanceFragment extends BaseFragment {
     public void initData(@Nullable Bundle savedInstanceState) {
 
     }
-    @OnClick({R.id.home_balance_iv_action})
+
+    @OnClick({R.id.home_balance_iv_action, R.id.home_balance_tv_help})
     public void viewOnclicked(View view) {
         switch (view.getId()) {
             case R.id.home_balance_iv_action:
-                getNavigator().getRepaymentNavigator().openSelectBankActivity();
+                getNavigator().getRepaymentNavigator().openThisCardBalanceActivity(RepaymentType.CREDIT);
                 break;
-
+            case R.id.home_balance_tv_help:
+                getNavigator().getRepaymentNavigator().openThisCardBalanceActivity(RepaymentType.THIS_CARD);
+                break;
         }
     }
 }

@@ -19,5 +19,18 @@
     <string name="repayment_select_model_bottom_message">使用银行级数字加密</string>
     <string name="repayment_credit_positive">信用卡正面（示例）</string>
     <string name="repayment_credit_side">信用卡背面（示例）</string>
-
-</resources>
+    <string name="repayment_this_card_balance_repayment_date">还款周期</string>
+    <string name="repayment_this_card_balance_repayment_date_hint">请输入还款周期</string>
+    <string name="repayment_this_card_balance_repayment_count">还款金额</string>
+    <string name="repayment_this_card_balance_repayment_mini">最低预留</string>
+    <string name="repayment_this_card_balance_repayment_mini_hint">最低预留300.00元</string>
+    <string name="repayment_this_card_balance_repayment_count_hint">最低500元起还</string>
+    <string name="repayment_this_card_balance_repayment_card_balance">卡内余额</string>
+    <string name="repayment_this_card_balance_repayment_safe_code">安全码</string>
+    <string name="repayment_this_card_balance_repayment_safe_code_hint">请输入卡背面末三位数字</string>
+    <string name="repayment_this_card_balance_repayment_effective_date_hint">09/20，输入 0920 即可</string>
+    <string name="repayment_this_card_balance_repayment_effective_date">有效期</string>
+    <string name="repayment_this_card_balance_repayment_next">下一步</string>
+    <string name="repayment_this_card_balance_repayment_poundage">手续费</string>
+    <string name="repayment_this_card_balance_repayment_credit_message">确保您的信用卡留有支付手续费的余额</string>
+    </resources>

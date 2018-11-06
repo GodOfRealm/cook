@@ -2,6 +2,7 @@ package com.miguan.youmi.module.repayment;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.miguan.youmi.app.constant.ARouterPaths;
+import com.miguan.youmi.app.constant.ExtraConstant;
 
 
 /**
@@ -27,7 +28,18 @@ public class RepaymentNavigator {
                 .build(ARouterPaths.REPAYMENT_SELECT_BANK)
                 .navigation();
     }
-
+    /**
+     * Desc: 本卡余额代偿
+     * <p>
+     * Author: SonnyJack
+     * Date: 2018-06-28
+     */
+    public void openThisCardBalanceActivity(@RepaymentType.Val int type) {
+        ARouter.getInstance()
+                .build(ARouterPaths.REPAYMENT_THIS_CARD_BALANCE)
+                .withInt(ExtraConstant.REPAYMENT_TYPE, type)
+                .navigation();
+    }
 
 
 }

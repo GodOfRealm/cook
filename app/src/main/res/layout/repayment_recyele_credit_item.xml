@@ -96,7 +96,7 @@
         android:id="@+id/repayment_credit_item_tv_number"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="12dp"
         android:layout_marginRight="17dp"
         android:gravity="end"
         android:text="2381"
@@ -104,7 +104,7 @@
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/repayment_credit_item_iv_point_three"
-        app:layout_constraintTop_toBottomOf="@id/repayment_credit_item_iv_repayment" />
+        app:layout_constraintTop_toBottomOf="@id/repayment_credit_item_iv_icon" />
 
     <com.miguan.youmi.widget.CountTextView
         android:id="@+id/repayment_credit_item_tv_day"

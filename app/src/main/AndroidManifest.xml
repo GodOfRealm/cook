@@ -572,6 +572,9 @@
         <activity
             android:name=".module.repayment.ui.activity.SelectBankActivity"
             android:label="支持银行" />
+        <activity
+            android:name=".module.repayment.ui.activity.RepaymentActivity"
+            android:label="本卡余额代偿" />
     </application>
 
 </manifest>

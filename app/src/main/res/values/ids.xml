@@ -16,5 +16,5 @@
     <item name="msg_tv_video_switch_camera" type="id"/>
 
     <item name="tv_empty_slide" type="id"/>
-
+    <item name="base_v_vertical_line" type="id"/>
 </resources>

@@ -10,8 +10,11 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresPermission;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 
 import com.blankj.utilcode.constant.PermissionConstants;
 import com.blankj.utilcode.util.DeviceUtils;
@@ -34,6 +37,7 @@ import com.sensorsdata.analytics.android.sdk.SensorsDataAPI;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.text.DecimalFormat;
 import java.util.Locale;
 import java.util.Map;
 
@@ -192,7 +196,6 @@ public class PickUtils {
     }
 
 
-
     /**
      * Desc: 更新任务等级
      * <p>
@@ -340,9 +343,6 @@ public class PickUtils {
     }
 
 
-
-
-
     /**
      * Desc:
      * <p>
@@ -429,7 +429,6 @@ public class PickUtils {
     }
 
 
-
     /**
      * 获取渠道
      *
@@ -487,8 +486,6 @@ public class PickUtils {
             return GenderType.UNKNOWN;
         }
     }
-
-
 
 
     /**
@@ -629,7 +626,6 @@ public class PickUtils {
     }
 
 
-
     /**
      * Desc:
      * <p>
@@ -734,5 +730,60 @@ public class PickUtils {
                 .append("=")
                 .append(value);
         return stringBuilder.toString();
+    }
+
+    /**
+     * Desc:输入控制上下限
+     * <p>
+     * Author: 张文顺
+     * Date: 2018-11-06
+     *
+     * @param edit
+     * @param MIN_MARK
+     * @param MAX_MARK
+     */
+    public static void setRegion(final EditText edit, final double MIN_MARK, final double MAX_MARK) {
+        edit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (start > 1) {
+                    if (MIN_MARK != -1 && MAX_MARK != -1) {
+                        double num = Double.parseDouble(s.toString());
+                        if (num > MAX_MARK) {
+                            s = String.valueOf(new DecimalFormat("0.00").format(MAX_MARK));
+                            edit.setText(s);
+                        } else if (num < MIN_MARK) {
+                            s = String.valueOf(new DecimalFormat("0.00").format(MIN_MARK));
+                            edit.setText(s);
+                        }
+                        edit.setSelection(s.length());
+                    }
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s != null && !s.equals("")) {
+                    if (MIN_MARK != -1 && MAX_MARK != -1) {
+                        double markVal = 0;
+                        try {
+                            markVal = Double.parseDouble(s.toString());
+                        } catch (NumberFormatException e) {
+                            markVal = 0;
+                        }
+                        if (markVal > MAX_MARK) {
+                            String s1 = String.valueOf(new DecimalFormat("0.00").format(MAX_MARK));
+                            edit.setText(s1);
+                            edit.setSelection(s1.length());
+                        }
+                        return;
+                    }
+                }
+            }
+        });
     }
 }

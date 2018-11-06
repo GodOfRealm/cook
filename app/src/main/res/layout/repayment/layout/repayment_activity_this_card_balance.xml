@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <include layout="@layout/base_include_toolbar" />
+
+    <TextView
+        android:id="@+id/repayment_this_card_balance_tv_head_message"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="@color/color_fff1d9"
+        android:drawableEnd="@mipmap/repayment_ic_this_card_balance_arrwo"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_caption" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.miguan.youmi.core.widget.radius.RadiusImageView
+                android:id="@+id/repayment_this_card_balance_iv_bg"
+                android:layout_width="match_parent"
+                android:layout_height="152dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:scaleType="fitXY"
+                android:src="@color/colorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rv_radius="6.5dp" />
+
+            <com.miguan.youmi.core.widget.radius.RadiusImageView
+                android:id="@+id/repayment_this_card_balance_iv_icon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@mipmap/home_ic_notice"
+                app:layout_constraintStart_toStartOf="@+id/repayment_this_card_balance_iv_bg"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_iv_bg"
+                app:rv_oval="true" />
+
+            <TextView
+                android:id="@+id/repayment_this_card_balance_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="建设银行"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subhead"
+                app:layout_constraintStart_toEndOf="@+id/repayment_this_card_balance_iv_icon"
+                app:layout_constraintTop_toTopOf="@id/repayment_this_card_balance_iv_icon" />
+
+            <TextView
+                android:id="@+id/repayment_this_card_balance_tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尤小米"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_caption"
+                app:layout_constraintBottom_toBottomOf="@id/repayment_this_card_balance_iv_icon"
+                app:layout_constraintStart_toStartOf="@+id/repayment_this_card_balance_tv_title" />
+
+
+            <ImageView
+                android:id="@+id/repayment_this_card_balance_iv_point_one"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/repayment_ic_credit_point"
+                app:layout_constraintBottom_toBottomOf="@+id/repayment_this_card_balance_tv_number"
+                app:layout_constraintEnd_toStartOf="@+id/repayment_this_card_balance_iv_point_two"
+                app:layout_constraintStart_toStartOf="@+id/repayment_this_card_balance_iv_bg"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_number" />
+
+            <ImageView
+                android:id="@+id/repayment_this_card_balance_iv_point_two"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/repayment_ic_credit_point"
+                app:layout_constraintBottom_toBottomOf="@+id/repayment_this_card_balance_tv_number"
+                app:layout_constraintEnd_toStartOf="@+id/repayment_this_card_balance_iv_point_three"
+                app:layout_constraintStart_toEndOf="@+id/repayment_this_card_balance_iv_point_one"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_number" />
+
+            <ImageView
+                android:id="@+id/repayment_this_card_balance_iv_point_three"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/repayment_ic_credit_point"
+                app:layout_constraintBottom_toBottomOf="@+id/repayment_this_card_balance_tv_number"
+                app:layout_constraintEnd_toStartOf="@+id/repayment_this_card_balance_tv_number"
+                app:layout_constraintStart_toEndOf="@+id/repayment_this_card_balance_iv_point_two"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_number" />
+
+            <com.miguan.youmi.widget.CountTextView
+                android:id="@+id/repayment_this_card_balance_tv_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="17dp"
+                android:gravity="end"
+                android:text="2381"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="@+id/repayment_this_card_balance_iv_bg"
+                app:layout_constraintStart_toEndOf="@+id/repayment_this_card_balance_iv_point_three"
+                app:layout_constraintTop_toBottomOf="@id/repayment_this_card_balance_iv_icon" />
+
+            <com.miguan.youmi.widget.CountTextView
+                android:id="@+id/repayment_this_card_balance_tv_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="15dp"
+                android:text="06"
+                android:textColor="@color/white"
+                android:textSize="36dp"
+                app:layout_constraintBottom_toBottomOf="@+id/repayment_this_card_balance_iv_bg"
+                app:layout_constraintStart_toStartOf="@+id/repayment_this_card_balance_iv_bg" />
+
+            <TextView
+                android:id="@+id/repayment_this_card_balance_tv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/repayment_credit_message"
+                android:textColor="@color/colorTextTertiary"
+                android:textSize="@dimen/text_size_caption"
+                app:layout_constraintStart_toEndOf="@id/repayment_this_card_balance_tv_day"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_day" />
+
+            <com.miguan.youmi.widget.CountTextView
+                android:id="@+id/repayment_this_card_balance_tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="11/04"
+                android:textColor="@color/colorTextTertiary"
+                android:textSize="@dimen/text_size_caption"
+                app:layout_constraintBottom_toBottomOf="@+id/repayment_this_card_balance_tv_day"
+                app:layout_constraintStart_toStartOf="@+id/repayment_this_card_balance_tv_message" />
+
+            <com.miguan.youmi.widget.CountTextView
+                android:id="@+id/repayment_this_card_balance_tv_repayment_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11/16"
+                android:textColor="@color/colorTextTertiary"
+                android:textSize="@dimen/text_size_caption"
+                app:layout_constraintBottom_toBottomOf="@+id/repayment_this_card_balance_tv_date"
+                app:layout_constraintEnd_toEndOf="@+id/repayment_this_card_balance_tv_number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="7dp"
+                android:text="@string/repayment_credit_repayment_date"
+                android:textColor="@color/colorTextTertiary"
+                android:textSize="@dimen/text_size_caption"
+                app:layout_constraintBottom_toBottomOf="@+id/repayment_this_card_balance_tv_repayment_date"
+                app:layout_constraintEnd_toStartOf="@+id/repayment_this_card_balance_tv_repayment_date" />
+
+            <com.miguan.youmi.widget.DividerTextView
+                android:id="@+id/repayment_this_card_balance_tv_repayment_date_title"
+                style="@style/DividerTextViewTitleStyle"
+                android:layout_marginTop="17dp"
+                android:text="@string/repayment_this_card_balance_repayment_date"
+                app:layout_constraintTop_toBottomOf="@id/repayment_this_card_balance_iv_bg" />
+
+            <EditText
+                android:id="@+id/repayment_this_card_balance_et_repayment_date"
+                style="@style/DividerTextViewInputStyle"
+                android:hint="@string/repayment_this_card_balance_repayment_date_hint"
+                android:inputType="numberDecimal"
+                app:layout_constraintStart_toStartOf="@+id/repayment_this_card_balance_tv_repayment_date_title"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_repayment_date_title" />
+
+            <com.miguan.youmi.widget.DividerTextView
+                android:id="@+id/repayment_this_card_balance_tv_repayment_count_title"
+                style="@style/DividerTextViewTitleStyle"
+                android:text="@string/repayment_this_card_balance_repayment_count"
+                app:layout_constraintTop_toBottomOf="@id/repayment_this_card_balance_tv_repayment_date_title" />
+
+            <EditText
+                android:id="@+id/repayment_this_card_balance_et_repayment_count"
+                style="@style/DividerTextViewInputStyle"
+                android:hint="@string/repayment_this_card_balance_repayment_count_hint"
+                android:inputType="numberDecimal"
+                app:layout_constraintStart_toStartOf="@+id/repayment_this_card_balance_tv_repayment_count_title"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_repayment_count_title" />
+
+            <TextView
+                android:id="@+id/repayment_this_card_balance_tv_card_balance_title"
+                style="@style/DividerTextViewTitleStyle"
+                android:text="@string/repayment_this_card_balance_repayment_card_balance"
+                app:layout_constraintTop_toBottomOf="@id/repayment_this_card_balance_tv_repayment_count_title" />
+
+            <EditText
+                android:id="@+id/repayment_this_card_balance_et_card_balance_count"
+                style="@style/DividerTextViewInputStyle"
+                android:hint="@string/repayment_this_card_balance_repayment_mini_hint"
+                android:inputType="numberDecimal"
+                android:maxEms="8"
+                app:layout_constraintStart_toStartOf="@+id/repayment_this_card_balance_tv_card_balance_title"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_card_balance_title" />
+
+            <TextView
+                android:id="@+id/repayment_this_card_balance_tv_poundage"
+                style="@style/DividerTextViewInputStyle"
+                app:layout_constraintStart_toStartOf="@+id/repayment_this_card_balance_tv_card_balance_title"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_card_balance_title" />
+
+            <TextView
+                android:id="@+id/repayment_this_card_balance_tv_mini"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/repayment_this_card_balance_repayment_mini"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_body"
+                app:layout_constraintBottom_toBottomOf="@+id/repayment_this_card_balance_tv_card_balance_title"
+                app:layout_constraintEnd_toEndOf="@+id/repayment_this_card_balance_tv_card_balance_title"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_card_balance_title" />
+
+            <View
+                style="@style/VerticalLineStyle"
+                android:layout_height="13dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/repayment_this_card_balance_tv_card_balance_title"
+                app:layout_constraintEnd_toStartOf="@+id/repayment_this_card_balance_tv_mini"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_card_balance_title"></View>
+
+            <View
+                style="@style/commonSpaceStyle"
+                app:layout_constraintTop_toBottomOf="@+id/repayment_this_card_balance_tv_card_balance_title"></View>
+
+            <TextView
+                android:id="@+id/repayment_this_card_balance_tv_poundage_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWindowBackground"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:singleLine="true"
+                android:textColor="@color/color_text_666666"
+                android:textSize="@dimen/text_size_caption"
+                app:layout_constraintTop_toBottomOf="@+id/repayment_this_card_balance_tv_card_balance_title" />
+
+            <com.miguan.youmi.widget.DividerTextView
+                android:id="@+id/repayment_this_card_balance_tv_safe_code_title"
+                style="@style/DividerTextViewTitleStyle"
+                android:text="@string/repayment_this_card_balance_repayment_safe_code"
+                app:layout_constraintTop_toBottomOf="@id/repayment_this_card_balance_tv_poundage_message" />
+
+            <EditText
+                android:id="@+id/repayment_this_card_balance_et_safe_code"
+                style="@style/DividerTextViewInputStyle"
+                android:hint="@string/repayment_this_card_balance_repayment_safe_code_hint"
+                android:inputType="numberDecimal"
+                app:layout_constraintStart_toStartOf="@+id/repayment_this_card_balance_tv_safe_code_title"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_safe_code_title" />
+
+            <ImageView
+                android:id="@+id/repayment_this_card_balance_iv_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:padding="11dp"
+                android:src="@mipmap/repayment_ic_select_model_question"
+                app:layout_constraintBottom_toBottomOf="@+id/repayment_this_card_balance_tv_safe_code_title"
+                app:layout_constraintEnd_toEndOf="@+id/repayment_this_card_balance_tv_safe_code_title"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_safe_code_title" />
+
+            <com.miguan.youmi.widget.DividerTextView
+                android:id="@+id/repayment_this_card_balance_tv_effective_date_title"
+                style="@style/DividerTextViewTitleStyle"
+                android:text="@string/repayment_this_card_balance_repayment_effective_date"
+                app:layout_constraintTop_toBottomOf="@id/repayment_this_card_balance_tv_safe_code_title" />
+
+            <EditText
+                android:id="@+id/repayment_this_card_balance_et_effective_date"
+                style="@style/DividerTextViewInputStyle"
+                android:hint="@string/repayment_this_card_balance_repayment_effective_date_hint"
+                android:inputType="numberDecimal"
+                app:layout_constraintStart_toStartOf="@+id/repayment_this_card_balance_tv_effective_date_title"
+                app:layout_constraintTop_toTopOf="@+id/repayment_this_card_balance_tv_effective_date_title" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/colorWindowBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/repayment_this_card_balance_tv_effective_date_title" />
+
+            <TextView
+                android:id="@+id/repayment_this_card_balance_tv_action"
+                style="@style/CommonClickAbleStyle"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="43dp"
+                android:layout_marginRight="16dp"
+                android:enabled="false"
+                android:text="@string/repayment_this_card_balance_repayment_next"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/repayment_this_card_balance_tv_effective_date_title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:layout_marginBottom="24dp"
+                android:drawableLeft="@mipmap/repayment_ic_select_model_safe"
+                android:drawablePadding="4dp"
+                android:paddingBottom="19dp"
+                android:text="@string/repayment_select_model_bottom_message"
+                android:textColor="@color/colorTextTertiary"
+                android:textSize="@dimen/text_size_caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/repayment_this_card_balance_tv_action" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>
