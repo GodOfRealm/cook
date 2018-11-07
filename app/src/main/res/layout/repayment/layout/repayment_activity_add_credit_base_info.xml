@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
+
+    <include layout="@layout/base_include_toolbar" />
+
+    <com.miguan.youmi.widget.DividerTextView
+        android:id="@+id/repayment_ad_credit_base_tv_name_title"
+        style="@style/DividerTextViewTitleStyle"
+        android:layout_marginTop="@dimen/spacing_mini"
+        android:background="@color/white"
+        android:text="@string/repayment_add_credit_base_name"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <EditText
+        android:id="@+id/repayment_this_card_balance_et_repayment_date"
+        style="@style/DividerTextViewInputStyle"
+        android:hint="@string/repayment_add_credit_base_name_hint"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/repayment_ad_credit_base_tv_name_title"
+        app:layout_constraintTop_toTopOf="@+id/repayment_ad_credit_base_tv_name_title" />
+
+    <com.miguan.youmi.widget.DividerTextView
+        android:id="@+id/repayment_ad_credit_base_tv_ident_title"
+        style="@style/DividerTextViewTitleStyle"
+        android:background="@color/white"
+        android:text="@string/repayment_add_credit_base_ident"
+        app:layout_constraintTop_toBottomOf="@id/repayment_ad_credit_base_tv_name_title" />
+
+    <EditText
+        android:id="@+id/repayment_ad_credit_base_et_ident"
+        style="@style/DividerTextViewInputStyle"
+        android:hint="@string/repayment_add_credit_base_ident_hint"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/repayment_ad_credit_base_tv_ident_title"
+        app:layout_constraintTop_toTopOf="@+id/repayment_ad_credit_base_tv_ident_title" />
+
+    <TextView
+        android:id="@+id/repayment_ad_credit_base_tv_credit_title"
+        style="@style/DividerTextViewTitleStyle"
+        android:background="@color/white"
+        android:text="@string/repayment_add_credit_base_credit_number"
+        app:layout_constraintTop_toBottomOf="@id/repayment_ad_credit_base_tv_ident_title" />
+
+    <com.miguan.youmi.widget.HPEditText
+        android:id="@+id/repayment_ad_credit_base_et_credit"
+        style="@style/DividerTextViewInputStyle"
+        android:hint="@string/repayment_add_credit_base_credit_number_hint"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/repayment_ad_credit_base_tv_ident_title"
+        app:layout_constraintTop_toTopOf="@+id/repayment_ad_credit_base_tv_credit_title" />
+
+    <ImageView
+        android:id="@+id/repayment_ad_credit_base_tv_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="16dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="16dp"
+        android:src="@mipmap/repayment_ic_add_credit_camera"
+        app:layout_constraintBottom_toBottomOf="@+id/repayment_ad_credit_base_tv_credit_title"
+        app:layout_constraintEnd_toEndOf="@+id/repayment_ad_credit_base_tv_credit_title"
+        app:layout_constraintTop_toTopOf="@+id/repayment_ad_credit_base_tv_credit_title" />
+
+    <TextView
+        android:id="@+id/repayment_ad_credit_base_tv_action"
+        style="@style/CommonClickAbleStyle"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/repayment_this_card_balance_repayment_next"
+        app:layout_constraintTop_toBottomOf="@+id/repayment_ad_credit_base_tv_credit_title" />
+
+
+</android.support.constraint.ConstraintLayout>

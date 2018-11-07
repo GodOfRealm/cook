@@ -9,7 +9,7 @@
     <color name="colorTextPrimaryNext">#454545</color>
     <color name="colorTextTertiary">#999999</color><!-- 偏浅的字体色-->
     <color name="colorTextSecondary">#bbbbbb</color><!-- 最浅的字体色-->
-    <color name="colorDisable">#ffeeeeee</color> <!-- 控件不可用状态色 -->
+    <color name="colorDisable">#cccccc</color> <!-- 控件不可用状态色 -->
 
     <!--分割线颜色，添加div前缀-->
     <color name="divPrimary">#FFEEEEEE</color>

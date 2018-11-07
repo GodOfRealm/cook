@@ -1,0 +1,2 @@
+1、在根布局添加
+    tools:ignore="MissingPrefix"

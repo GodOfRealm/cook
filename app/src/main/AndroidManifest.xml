@@ -575,6 +575,9 @@
         <activity
             android:name=".module.repayment.ui.activity.RepaymentActivity"
             android:label="本卡余额代偿" />
+        <activity
+            android:name=".module.repayment.ui.activity.AddCreditBaseInfoActivity"
+            android:label="添加信用卡" />
     </application>
 
 </manifest>

@@ -41,5 +41,15 @@ public class RepaymentNavigator {
                 .navigation();
     }
 
-
+    /**
+     * Desc:添加信用卡基础信息
+     * <p>
+     * Author: SonnyJack
+     * Date: 2018-06-28
+     */
+    public void openAddCardBaseInfo() {
+        ARouter.getInstance()
+                .build(ARouterPaths.REPAYMENT_ADD_CREDIT_BASE_INFO)
+                .navigation();
+    }
 }

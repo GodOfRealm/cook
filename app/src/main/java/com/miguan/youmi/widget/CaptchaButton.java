@@ -31,8 +31,7 @@ public class CaptchaButton extends AppCompatTextView {
     private int mEnableColor; // 正常状态文本颜色
     private int mDisableColor; // 不可点击文本颜色
     private String mEnableString = "获取验证码"; // 默认显示文本
-    private String mDisableString = "剩余%d秒";
-
+    private String mDisableString = "(%ds)重发";
     private Timer mTimer = null;
     private TimerTask mTask = null;
     private OnSendListener mListener = null;
@@ -55,7 +54,7 @@ public class CaptchaButton extends AppCompatTextView {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        int defaultEnableColor = context.getResources().getColor(R.color.colorTextPrimary);
+        int defaultEnableColor = context.getResources().getColor(R.color.white);
         int defaultDisableColor = context.getResources().getColor(R.color.colorDisable);
 
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.CaptchaButton);
@@ -72,6 +71,7 @@ public class CaptchaButton extends AppCompatTextView {
         this.setGravity(Gravity.CENTER);
         this.setTextColor(mEnableColor);
         this.setText(mEnableString);
+        this.setClickable(true);
         this.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

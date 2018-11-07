@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.jess.arms.di.component.AppComponent;
@@ -41,6 +43,10 @@ import butterknife.OnClick;
  */
 public class RepaymentFragment extends BaseListFragment<Object, RepaymentPresenter> implements RepaymentContract.View<Object> {
 
+    @BindView(R.id.base_toolbar_text_right)
+    TextView mTvRightText;
+    @BindView(R.id.base_toolbar_right)
+    ImageView mIvRightIcon;
 
     /**
      * Desc:
@@ -89,11 +95,15 @@ public class RepaymentFragment extends BaseListFragment<Object, RepaymentPresent
                 .setRetryText("重试");
     }
 
-    @OnClick({R.id.base_toolbar_title})
+    @OnClick({R.id.base_toolbar_title, R.id.base_toolbar_text_right, R.id.base_toolbar_right})
     public void viewOnclicked(View view) {
         switch (view.getId()) {
             case R.id.base_toolbar_title:
 
+                break;
+            case R.id.base_toolbar_text_right:
+            case R.id.base_toolbar_right:
+                getNavigator().getRepaymentNavigator().openAddCardBaseInfo();
                 break;
 
         }

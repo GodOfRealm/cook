@@ -33,4 +33,10 @@
     <string name="repayment_this_card_balance_repayment_next">下一步</string>
     <string name="repayment_this_card_balance_repayment_poundage">手续费</string>
     <string name="repayment_this_card_balance_repayment_credit_message">确保您的信用卡留有支付手续费的余额</string>
-    </resources>
+    <string name="repayment_add_credit_base_name">用户姓名</string>
+    <string name="repayment_add_credit_base_name_hint">请输入持卡人姓名</string>
+    <string name="repayment_add_credit_base_ident">身份证号</string>
+    <string name="repayment_add_credit_base_ident_hint">请输入身份证号</string>
+    <string name="repayment_add_credit_base_credit_number">信用卡号</string>
+    <string name="repayment_add_credit_base_credit_number_hint">请输入信用卡卡号</string>
+</resources>
