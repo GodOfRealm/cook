@@ -19,6 +19,7 @@ import com.miguan.youmi.app.ViewConfig;
 import com.miguan.youmi.app.constant.ARouterPaths;
 import com.miguan.youmi.bean.TabEntity;
 import com.miguan.youmi.module.home.ui.fragment.HomeFragment;
+import com.miguan.youmi.module.loan.ui.fragment.LoanFragment;
 import com.miguan.youmi.module.main.di.component.DaggerMainComponent;
 import com.miguan.youmi.module.main.di.module.MainModule;
 import com.miguan.youmi.module.main.contract.MainContract;
@@ -37,10 +38,10 @@ import butterknife.BindView;
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
     @BindView(R.id.main_ctl_tab)
     CommonTabLayout mCtlTab;
-    private String[] mTitles = {"主页","还款"};
-    private String[] mFragmentName = {HomeFragment.class.getName(),RepaymentFragment.class.getName()};
-    private int[] mIconUnselectIds = {R.mipmap.main_ic_unselect_home,R.mipmap.main_ic_unselect_repayment};
-    private int[] mIconSelectIds = {R.mipmap.main_ic_select_home,R.mipmap.main_ic_select_repayment};
+    private String[] mTitles = {"主页","还款","贷款超市"};
+    private String[] mFragmentName = {HomeFragment.class.getName(),RepaymentFragment.class.getName(),LoanFragment.class.getName()};
+    private int[] mIconUnselectIds = {R.mipmap.main_ic_unselect_home,R.mipmap.main_ic_unselect_repayment,R.mipmap.main_ic_unselect_loan};
+    private int[] mIconSelectIds = {R.mipmap.main_ic_select_home,R.mipmap.main_ic_select_repayment,R.mipmap.main_ic_select_loan};
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
 

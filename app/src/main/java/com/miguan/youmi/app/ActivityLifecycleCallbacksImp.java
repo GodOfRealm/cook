@@ -163,6 +163,9 @@ public class ActivityLifecycleCallbacksImp implements Application.ActivityLifecy
                     tvRight.setVisibility(View.VISIBLE);
                     tvRight.setText(viewConfig.mToolbarRightText);
                 }
+                if (viewConfig.mOnRightTextClickListener != null) {
+                    tvRight.setOnClickListener(viewConfig.mOnRightTextClickListener);
+                }
             }
         }
     }

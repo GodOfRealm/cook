@@ -19,5 +19,7 @@ public interface ARouterPaths {
     String REPAYMENT_SELECT_BANK="/repayment/select_bank";
     String REPAYMENT_THIS_CARD_BALANCE="/repayment/this_card_balance";//代偿
     String REPAYMENT_ADD_CREDIT_BASE_INFO="/repayment/add_credit_base_info";//添加信用卡基础信息
+    String REPAYMENT_ADD_CREDIT_DETAIL_INFO="/repayment/add_credit_detail_info";//添加信用卡详细信息
+
 
 }

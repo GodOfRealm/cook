@@ -18,6 +18,7 @@ import com.miguan.youmi.module.repayment.di.component.DaggerAddCreditBaseInfoCom
 import com.miguan.youmi.module.repayment.di.module.AddCreditBaseInfoModule;
 import com.miguan.youmi.module.repayment.contract.AddCreditBaseInfoContract;
 import com.miguan.youmi.module.repayment.presenter.AddCreditBaseInfoPresenter;
+import com.miguan.youmi.module.repayment.ui.dialog.PoundageDialog;
 import com.miguan.youmi.widget.CaptchaButton;
 import com.miguan.youmi.widget.HPEditText;
 
@@ -59,19 +60,22 @@ public class AddCreditBaseInfoActivity extends BaseActivity<AddCreditBaseInfoPre
 
     }
 
-    @OnClick({R.id.repayment_ad_credit_base_tv_action})
+    @OnClick({R.id.repayment_ad_credit_base_tv_action, R.id.repayment_ad_credit_base_tv_camera})
     public void viewOnclicked(View view) {
         switch (view.getId()) {
             case R.id.repayment_ad_credit_base_tv_action:
-                mEtCreditNumber.setText("123456789123");
+                getNavigator().getRepaymentNavigator().openAddCardDetailInfo();
                 break;
-
+            case R.id.repayment_ad_credit_base_tv_camera:
+                PoundageDialog poundageDialog = new PoundageDialog();
+                poundageDialog.showDialog(getSupportFragmentManager());
+                break;
         }
     }
 
     @Override
     public ViewConfig getViewConfig() {
-        return super.getViewConfig().setToolbarRightText("支持银行").setRightClickListener(v -> {
+        return super.getViewConfig().setToolbarRightText("支持银行").setToolbarRightTextVisible(true).setRightTextClickListener(v -> {
             getNavigator().getRepaymentNavigator().openSelectBankActivity();
         });
     }

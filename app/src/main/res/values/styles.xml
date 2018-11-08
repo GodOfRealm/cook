@@ -135,6 +135,8 @@
     <!-- 通用是否可点击按钮  布局根本添加 tools:ignore="MissingPrefix" -->
     <style name="CommonClickAbleStyle">
         <item name="android:layout_height">44dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="bl_corners_radius">22dp</item>
         <item name="android:gravity">center</item>

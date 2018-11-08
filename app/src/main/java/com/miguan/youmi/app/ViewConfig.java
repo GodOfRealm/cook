@@ -54,6 +54,8 @@ public class ViewConfig implements Serializable, Cloneable {
 
     View.OnClickListener mOnLeftClickListener; // 左边边单击
     View.OnClickListener mOnRightClickListener; // 右边单击
+    View.OnClickListener mOnRightTextClickListener; // 右边文本单击
+
 
     String mToolbarTitle; // 中间标题
     @ColorRes
@@ -121,6 +123,10 @@ public class ViewConfig implements Serializable, Cloneable {
      */
     public ViewConfig setRightClickListener(View.OnClickListener listener) {
         mOnRightClickListener = listener;
+        return this;
+    }
+    public ViewConfig setRightTextClickListener(View.OnClickListener listener) {
+        mOnRightTextClickListener = listener;
         return this;
     }
 

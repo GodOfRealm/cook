@@ -313,9 +313,7 @@
             <TextView
                 android:id="@+id/repayment_this_card_balance_tv_action"
                 style="@style/CommonClickAbleStyle"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="43dp"
-                android:layout_marginRight="16dp"
                 android:enabled="false"
                 android:text="@string/repayment_this_card_balance_repayment_next"
                 app:layout_constraintStart_toStartOf="parent"

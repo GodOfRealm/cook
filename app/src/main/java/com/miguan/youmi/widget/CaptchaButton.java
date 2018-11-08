@@ -25,7 +25,7 @@ import java.util.TimerTask;
  * Update Comments:
  */
 public class CaptchaButton extends AppCompatTextView {
-    private static final int DEFAULT_DISABLE_TIME = 60; // 默认倒计时时间 单位秒
+    private static final int DEFAULT_DISABLE_TIME = 5; // 默认倒计时时间 单位秒
 
     private int mDisableTime; // 倒计时
     private int mEnableColor; // 正常状态文本颜色
@@ -60,7 +60,7 @@ public class CaptchaButton extends AppCompatTextView {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.CaptchaButton);
         mDisableTime = ta.getInteger(R.styleable.CaptchaButton_cb_time, DEFAULT_DISABLE_TIME);
         mEnableColor = ta.getColor(R.styleable.CaptchaButton_cb_enable_color, defaultEnableColor);
-        mDisableColor = ta.getColor(R.styleable.CaptchaButton_cb_disable_color, defaultEnableColor);
+        mDisableColor = ta.getColor(R.styleable.CaptchaButton_cb_disable_color, defaultDisableColor);
         if (ta.hasValue(R.styleable.CaptchaButton_cb_enable_text)) {
             mEnableString = ta.getString(R.styleable.CaptchaButton_cb_enable_text);
         }

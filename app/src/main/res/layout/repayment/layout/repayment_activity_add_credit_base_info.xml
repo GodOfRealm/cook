@@ -72,9 +72,7 @@
     <TextView
         android:id="@+id/repayment_ad_credit_base_tv_action"
         style="@style/CommonClickAbleStyle"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="40dp"
-        android:layout_marginRight="16dp"
         android:text="@string/repayment_this_card_balance_repayment_next"
         app:layout_constraintTop_toBottomOf="@+id/repayment_ad_credit_base_tv_credit_title" />
 

@@ -60,7 +60,15 @@ public class RepaymentFragment extends BaseListFragment<Object, RepaymentPresent
         RepaymentFragment fragment = new RepaymentFragment();
         return fragment;
     }
-
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden){
+            ImmersionBar immersionBar = ImmersionBar.with(this);
+            immersionBar.statusBarColor(R.color.colorPrimary);
+            immersionBar.init();
+        }
+    }
     @Override
     public void setupFragmentComponent(@NonNull AppComponent appComponent) {
         DaggerRepaymentComponent //如找不到该类,请编译一下项目

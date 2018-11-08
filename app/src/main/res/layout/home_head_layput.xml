@@ -8,9 +8,15 @@
     <ImageView
         android:id="@+id/home_head_iv_bg"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/home_bg_head"
+        android:layout_height="248dp"
+        android:background="@color/colorPrimary"
         android:scaleType="fitXY" />
+    <ImageView
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/home_head_iv_bg"
+        android:src="@mipmap/home_ic_triangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <com.miguan.youmi.widget.tablayout.SlidingTabLayout
         android:id="@+id/home_head_menu"

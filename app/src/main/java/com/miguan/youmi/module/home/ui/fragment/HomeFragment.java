@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.blankj.utilcode.util.SizeUtils;
+import com.gyf.barlibrary.ImmersionBar;
 import com.jess.arms.di.component.AppComponent;
 
 import com.miguan.youmi.R;
@@ -60,7 +61,15 @@ public class HomeFragment extends BaseListFragment<Object, HomePresenter> implem
         HomeFragment fragment = new HomeFragment();
         return fragment;
     }
-
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden){
+            ImmersionBar immersionBar = ImmersionBar.with(this);
+            immersionBar.statusBarColor(R.color.colorPrimary);
+            immersionBar.init();
+        }
+    }
     @Override
     public void setupFragmentComponent(@NonNull AppComponent appComponent) {
         DaggerHomeComponent //如找不到该类,请编译一下项目
