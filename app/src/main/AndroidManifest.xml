@@ -578,6 +578,9 @@
         <activity
             android:name=".module.repayment.ui.activity.AddCreditBaseInfoActivity"
             android:label="添加信用卡" />
+        <activity
+            android:name=".module.repayment.ui.activity.AddCreditDetailInfoActivity"
+            android:label="添加信用卡" />
     </application>
 
 </manifest>

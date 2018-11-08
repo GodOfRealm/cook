@@ -39,4 +39,12 @@
     <string name="repayment_add_credit_base_ident_hint">请输入身份证号</string>
     <string name="repayment_add_credit_base_credit_number">信用卡号</string>
     <string name="repayment_add_credit_base_credit_number_hint">请输入信用卡卡号</string>
+    <string name="repayment_add_credit_detail_info_credit">信用卡</string>
+    <string name="repayment_add_credit_detail_info_repayment_date_hint">请输入还款日</string>
+    <string name="repayment_add_credit_detail_info_bill_date_hint">请输入账单日</string>
+    <string name="repayment_add_credit_detail_info_phone_hint">请输入银行预留手机号</string>
+    <string name="repayment_add_credit_detail_info_bill_date">账单日</string>
+    <string name="repayment_add_credit_detail_info_phone">手机号</string>
+    <string name="repayment_add_credit_detail_info_captcha">验证码</string>
+    <string name="repayment_add_credit_detail_info_captcha_hint">请输入验证码</string>
 </resources>

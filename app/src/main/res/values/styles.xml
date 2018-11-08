@@ -87,6 +87,7 @@
     </style>
     <!-- 统一空格间距 -->
     <style name="commonSpaceStyle">
+        <item name="android:id">@id/base_v_commmon_space</item>
         <item name="android:layout_height">@dimen/spacing_mini</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">@color/color_efeff4</item>

@@ -17,4 +17,5 @@
 
     <item name="tv_empty_slide" type="id"/>
     <item name="base_v_vertical_line" type="id"/>
+    <item name="base_v_commmon_space" type="id"/>
 </resources>

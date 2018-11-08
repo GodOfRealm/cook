@@ -59,7 +59,7 @@ public class AddCreditBaseInfoActivity extends BaseActivity<AddCreditBaseInfoPre
 
     }
 
-    @OnClick({R.id.repayment_ad_credit_base_tv_action,R.id.repayment_ad_credit_base_tv_action_send})
+    @OnClick({R.id.repayment_ad_credit_base_tv_action})
     public void viewOnclicked(View view) {
         switch (view.getId()) {
             case R.id.repayment_ad_credit_base_tv_action:
