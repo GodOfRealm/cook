@@ -212,12 +212,12 @@ public class DaoSharedPreferences {
      * @return
      */
     public boolean isTone() {
-        User user = PickUtils.getUser();
+        User user = CommonUtils.getUser();
         return mPreferences.getBoolean((user != null && !TextUtils.isEmpty(user.getUid())) ? IS_TONE + user.getUid() : IS_TONE, true);
     }
 
     public void setIsTone(boolean isTone) {
-        User user = PickUtils.getUser();
+        User user = CommonUtils.getUser();
         mEditor.putBoolean((user != null && !TextUtils.isEmpty(user.getUid())) ? IS_TONE + user.getUid() : IS_TONE, isTone);
         mEditor.apply();
     }
@@ -228,12 +228,12 @@ public class DaoSharedPreferences {
      * @return
      */
     public boolean isVibration() {
-        User user = PickUtils.getUser();
+        User user = CommonUtils.getUser();
         return mPreferences.getBoolean((user != null && !TextUtils.isEmpty(user.getUid())) ? IS_VIBRATION + user.getUid() : IS_VIBRATION, true);
     }
 
     public void setIsVibration(boolean isVibration) {
-        User user = PickUtils.getUser();
+        User user = CommonUtils.getUser();
         mEditor.putBoolean((user != null && !TextUtils.isEmpty(user.getUid())) ? IS_VIBRATION + user.getUid() : IS_VIBRATION, isVibration);
         mEditor.apply();
     }
@@ -244,12 +244,12 @@ public class DaoSharedPreferences {
      * @return
      */
     public boolean isNewMessage() {
-        User user = PickUtils.getUser();
+        User user = CommonUtils.getUser();
         return mPreferences.getBoolean((user != null && !TextUtils.isEmpty(user.getUid())) ? IS_NEWMESSAGE + user.getUid() : IS_NEWMESSAGE, true);
     }
 
     public void setisNewMessage(boolean isNewMessage) {
-        User user = PickUtils.getUser();
+        User user = CommonUtils.getUser();
         mEditor.putBoolean((user != null && !TextUtils.isEmpty(user.getUid())) ? IS_NEWMESSAGE + user.getUid() : IS_NEWMESSAGE, isNewMessage);
         mEditor.apply();
     }
@@ -260,12 +260,12 @@ public class DaoSharedPreferences {
      * @return
      */
     public boolean isNotification() {
-        User user = PickUtils.getUser();
+        User user = CommonUtils.getUser();
         return mPreferences.getBoolean((user != null && !TextUtils.isEmpty(user.getUid())) ? IS_NOTIFICATION + user.getUid() : IS_NOTIFICATION, true);
     }
 
     public void setisNotification(boolean isNotification) {
-        User user = PickUtils.getUser();
+        User user = CommonUtils.getUser();
         mEditor.putBoolean((user != null && !TextUtils.isEmpty(user.getUid())) ? IS_NOTIFICATION + user.getUid() : IS_NOTIFICATION, isNotification);
         mEditor.apply();
     }

@@ -19,9 +19,8 @@ import com.miguan.youmi.R;
 import com.miguan.youmi.app.analysis.AnalysisManager;
 import com.miguan.youmi.app.constant.Constant;
 import com.miguan.youmi.core.util.IImageLoader;
+import com.miguan.youmi.util.CommonUtils;
 import com.miguan.youmi.util.CrashHandler;
-import com.miguan.youmi.util.PickUtils;
-import com.noober.background.BackgroundLibrary;
 import com.sensorsdata.analytics.android.sdk.SensorsDataAPI;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
@@ -64,7 +63,7 @@ public class AppLifeCyclesImp implements AppLifecycles {
             return;
         }
         initHandleListener(application);
-        PickUtils.init(application);
+        CommonUtils.init(application);
 //        initCanary(application);
         initLog();
         initARouter(application);
@@ -146,7 +145,7 @@ public class AppLifeCyclesImp implements AppLifecycles {
     private void initUmeng(Application application) {
         //友盟渠道
         //注意！！！umeng的渠道每台设备只识别一次，测试不同渠道号，需要不同的umeng key
-        String channel = PickUtils.getChannel();
+        String channel = CommonUtils.getChannel();
         //友盟对应参数：UMConfigure.init(Context context, String appkey, String channel, int deviceType, String pushSecret);
         String appKey = getMeta("umeng_app_key", application);
         UMConfigure.init(application, appKey, channel, UMConfigure.DEVICE_TYPE_PHONE, null);
@@ -183,7 +182,7 @@ public class AppLifeCyclesImp implements AppLifecycles {
 
         try {
             JSONObject propertiesInstall = new JSONObject();
-            propertiesInstall.put("Channel", PickUtils.getChannel());
+            propertiesInstall.put("Channel", CommonUtils.getChannel());
             SensorsDataAPI.sharedInstance().trackInstallation("AppInstall");
 
             AnalysisManager.getInstance().registerSuperProperties();

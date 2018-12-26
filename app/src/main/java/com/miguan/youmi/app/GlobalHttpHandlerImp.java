@@ -8,7 +8,7 @@ import com.blankj.utilcode.util.MetaDataUtils;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.jess.arms.http.GlobalHttpHandler;
 import com.miguan.youmi.R;
-import com.miguan.youmi.util.PickUtils;
+import com.miguan.youmi.util.CommonUtils;
 
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
@@ -34,9 +34,9 @@ public class GlobalHttpHandlerImp implements GlobalHttpHandler {
         if (TextUtils.isEmpty(request.header("imei"))) {
             String timeMillis = String.valueOf(System.currentTimeMillis());
             request = request.newBuilder()
-                    .header("imei", PickUtils.getImei() == null ? "" : PickUtils.getImei())
-                    .header("Authorization", PickUtils.getToken())
-                    .header("channel", PickUtils.getChannel())
+                    .header("imei", CommonUtils.getImei() == null ? "" : CommonUtils.getImei())
+                    .header("Authorization", CommonUtils.getToken())
+                    .header("channel", CommonUtils.getChannel())
                     .header("deviceType", "1")
                     .header("version", AppUtils.getAppVersionName())
                     .header("signature", getSignature(timeMillis))

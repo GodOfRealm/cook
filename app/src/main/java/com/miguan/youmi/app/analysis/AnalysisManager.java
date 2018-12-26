@@ -2,7 +2,7 @@ package com.miguan.youmi.app.analysis;
 
 import com.miguan.youmi.bean.account.User;
 
-import com.miguan.youmi.util.PickUtils;
+import com.miguan.youmi.util.CommonUtils;
 import com.sensorsdata.analytics.android.sdk.SensorsDataAPI;
 
 import org.json.JSONException;
@@ -52,12 +52,12 @@ public class AnalysisManager {
     public void init() {
         try {
             // 设置公共属性
-            User user = PickUtils.getUser();
+            User user = CommonUtils.getUser();
             if (user != null) {
                 SensorsDataAPI.sharedInstance().login(user.getUser_id() != null ? user.getUser_id() : "");
 
                 JSONObject properties = new JSONObject();
-                boolean isIdentity = PickUtils.getUser() != null && PickUtils.getUser().isIdentity();
+                boolean isIdentity = CommonUtils.getUser() != null && CommonUtils.getUser().isIdentity();
                 properties.put("userType", isIdentity ? "达人" : "普通");
                 properties.put("accountType", user.isIs_test() ? "测试" : "正式");
                 properties.put("nickName", user.getNick_name());
@@ -88,7 +88,7 @@ public class AnalysisManager {
     public void registerSuperProperties() {
         try {
             JSONObject propertiesPublic = new JSONObject();
-            User user = PickUtils.getUser();
+            User user = CommonUtils.getUser();
             propertiesPublic.put("platform_type", "Android");
             propertiesPublic.put("user_type", user != null && user.isIdentity() ? "达人" : "普通用户");
             propertiesPublic.put("account_type", user != null && user.isIs_test());

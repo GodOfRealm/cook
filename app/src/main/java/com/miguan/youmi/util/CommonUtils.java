@@ -55,7 +55,7 @@ import static android.Manifest.permission.READ_PHONE_STATE;
  * Company: @米冠网络
  * Update Comments:
  */
-public class PickUtils {
+public class CommonUtils {
 
     private static Context sContext;
 
@@ -299,7 +299,7 @@ public class PickUtils {
      * @return user
      */
     public static String matchLastPhoto(String sensitive_tel) {
-        User lastUser = PickUtils.getLastUser(sensitive_tel);
+        User lastUser = CommonUtils.getLastUser(sensitive_tel);
         if (lastUser == null) {
             return null;
         } else {
@@ -407,7 +407,7 @@ public class PickUtils {
      * @return int
      */
     public static Map<String, Integer> getUnreadMsgCount() {
-        String key = (PickUtils.getUser() != null ? PickUtils.getUser().getUser_id() : "") + "unread_msg_count";
+        String key = (CommonUtils.getUser() != null ? CommonUtils.getUser().getUser_id() : "") + "unread_msg_count";
         String readStr = SPUtils.getInstance().getString(key, "");
         Map<String, Integer> unreadList = GsonUtil.parse(readStr, new TypeToken<Map<String, Integer>>() {
         }.getType());
@@ -423,7 +423,7 @@ public class PickUtils {
      * @param unreadMsgList
      */
     public static void setUnreadMsgCount(Map<String, Integer> unreadMsgList) {
-        String key = (PickUtils.getUser() != null ? PickUtils.getUser().getUser_id() : "") + "unread_msg_count";
+        String key = (CommonUtils.getUser() != null ? CommonUtils.getUser().getUser_id() : "") + "unread_msg_count";
 
         SPUtils.getInstance().put(key, unreadMsgList == null ? "" : GsonUtil.toJson(unreadMsgList));
     }

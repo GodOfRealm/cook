@@ -7,7 +7,7 @@ import com.blankj.utilcode.util.LogUtils;
 import com.miguan.youmi.app.ServicesObserver;
 import com.miguan.youmi.app.constant.Constant;
 import com.miguan.youmi.bean.account.User;
-import com.miguan.youmi.util.PickUtils;
+import com.miguan.youmi.util.CommonUtils;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -34,7 +34,7 @@ public class MyJPushMessageReceiver extends JPushMessageReceiver {
     }
 
     private void setAlias(Context context, int sequence, String alias) {
-        User user = PickUtils.getUser();
+        User user = CommonUtils.getUser();
         if (user != null) {
             if (TextUtils.isEmpty(alias) || !alias.equals(user.getUser_id())) {
                 JPushInterface.setAlias(context, sequence, user.getUser_id());

@@ -2,9 +2,6 @@ package com.miguan.youmi.app;
 
 
 import com.miguan.youmi.module.common.CommonNavigator;
-import com.miguan.youmi.module.main.MainNavigator;
-import com.miguan.youmi.module.repayment.RepaymentNavigator;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -25,8 +22,8 @@ public class Navigator {
     private CommonNavigator mCommonNavigator; // 通用模块路由
 //    private AccountNavigator mAccountNavigator; // 账号模块路由
 //    private UserNavigator mUserNavigator;
-    private MainNavigator mMainNavigator;//main路由
-    private RepaymentNavigator mRepaymentNavigator;//路由
+//    private MainNavigator mMainNavigator;//main路由
+//    private RepaymentNavigator mRepaymentNavigator;//路由
 
 //    private HomeNavigator mHomeNavigator;//main路由
 //    private OrderNavigator mOrderNavigator;//订单路由
@@ -66,8 +63,8 @@ public class Navigator {
     @Inject
     public Navigator() {
         mCommonNavigator = new CommonNavigator();
-        mMainNavigator = new MainNavigator();
-        mRepaymentNavigator = new RepaymentNavigator();
+//        mMainNavigator = new MainNavigator();
+//        mRepaymentNavigator = new RepaymentNavigator();
 
     }
 
@@ -93,9 +90,9 @@ public class Navigator {
      *
      * @return main navigator
      */
-    public MainNavigator getMainNavigator() {
-        return mMainNavigator;
-    }
+//    public MainNavigator getMainNavigator() {
+//        return mMainNavigator;
+//    }
     /**
      * Desc:模块跳转
      * <p>
@@ -104,9 +101,9 @@ public class Navigator {
      *
      * @return main navigator
      */
-    public RepaymentNavigator getRepaymentNavigator() {
-        return mRepaymentNavigator;
-    }
+//    public RepaymentNavigator getRepaymentNavigator() {
+//        return mRepaymentNavigator;
+//    }
 
 
 }

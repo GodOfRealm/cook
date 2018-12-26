@@ -10,9 +10,9 @@ import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.miguan.youmi.app.constant.EventBusTags;
 import com.miguan.youmi.bean.account.User;
+import com.miguan.youmi.util.CommonUtils;
 import com.miguan.youmi.util.DaoSharedPreferences;
 import com.miguan.youmi.util.EventBusUtil;
-import com.miguan.youmi.util.PickUtils;
 
 import org.json.JSONObject;
 
@@ -144,9 +144,9 @@ public class PushReceiver extends BroadcastReceiver {
 
     //收到推送刷新系统未读消息数
     private void notifySystemUnreadNum(int type) {
-        User user = PickUtils.getUser();
+        User user = CommonUtils.getUser();
         if (user != null) {
-            Map<String, Integer> unreadMsgCount = PickUtils.getUnreadMsgCount();
+            Map<String, Integer> unreadMsgCount = CommonUtils.getUnreadMsgCount();
             if (unreadMsgCount == null) unreadMsgCount = new HashMap<>();
             int count;
             StringBuilder key = new StringBuilder(user.getUser_id());
@@ -180,7 +180,7 @@ public class PushReceiver extends BroadcastReceiver {
             }
 
             unreadMsgCount.put(key.toString(), count);
-            PickUtils.setUnreadMsgCount(unreadMsgCount);
+            CommonUtils.setUnreadMsgCount(unreadMsgCount);
             EventBusUtil.postEvent(EventBusTags.UPDATE_UNREAD_MSG);
         }
     }
@@ -234,7 +234,7 @@ public class PushReceiver extends BroadcastReceiver {
                 EventBusUtil.postEvent(EventBusTags.SIGN_IN, value);
                 break;
             case TYPE_NEW_LIKE:
-                String key = PickUtils.getUserId() + DaoSharedPreferences.NEW_LIKE;
+                String key = CommonUtils.getUserId() + DaoSharedPreferences.NEW_LIKE;
                 int count = SPUtils.getInstance().getInt(key, 0) + 1;
                 SPUtils.getInstance().put(key, count);
                 EventBusUtil.postEvent(EventBusTags.NEW_LIKE);
@@ -266,7 +266,7 @@ public class PushReceiver extends BroadcastReceiver {
                 break;
             case TYPE_ACTIVE:
 //                Navigator.getInstance().getCommonNavigator().openWebActivity(value);
-//                PickUtils.clearUnreadMsgByType(UnreadMsgType.SYSTEM);
+//                CommonUtils.clearUnreadMsgByType(UnreadMsgType.SYSTEM);
 //                EventBusUtil.postEvent(EventBusTags.UPDATE_UNREAD_MSG);
                 break;
             case TYPE_ORDER_ACCEPT://接单

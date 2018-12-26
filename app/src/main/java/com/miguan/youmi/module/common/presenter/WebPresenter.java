@@ -18,7 +18,6 @@ import com.just.agentweb.DefaultWebClient;
 import com.just.agentweb.IAgentWebSettings;
 import com.miguan.youmi.R;
 import com.miguan.youmi.app.ServicesObserver;
-import com.miguan.youmi.app.analysis.AnalysisManager;
 import com.miguan.youmi.app.constant.Constant;
 import com.miguan.youmi.app.constant.EventBusTags;
 import com.miguan.youmi.bean.Download;
@@ -26,7 +25,7 @@ import com.miguan.youmi.bean.WebShare;
 import com.miguan.youmi.core.util.GsonUtil;
 import com.miguan.youmi.module.common.contract.WebContract;
 import com.miguan.youmi.module.common.model.ShareModel;
-import com.miguan.youmi.util.PickUtils;
+import com.miguan.youmi.util.CommonUtils;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import org.simple.eventbus.Subscriber;
@@ -202,7 +201,7 @@ public class WebPresenter extends BasePresenter<WebContract.Model, WebContract.V
             return;
         }
         //分享的是图片
-        if (webShare.getType() == WebShare.SHARE_TYPE_IMAGE && PickUtils.isHttpUrl(webShare.getShareImageURL())) {
+        if (webShare.getType() == WebShare.SHARE_TYPE_IMAGE && CommonUtils.isHttpUrl(webShare.getShareImageURL())) {
             Download download = new Download(EventBusTags.DOWNLOAD_WEB_IMAGE_SHARE);
             download.setUrl(webShare.getShareImageURL());
             download.setFileDir(Constant.IMAGE_PATH);

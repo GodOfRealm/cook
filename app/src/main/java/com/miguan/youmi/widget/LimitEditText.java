@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 
 import com.miguan.youmi.core.util.PickToast;
 import com.miguan.youmi.R;
-import com.miguan.youmi.util.PickUtils;
+import com.miguan.youmi.util.CommonUtils;
 
 /**
  * Desc: 字数限制的EditText，中文等于两个英文
@@ -72,7 +72,7 @@ public class LimitEditText extends AppCompatEditText {
     }
 
     private int calcCharLength(CharSequence sequence) {
-        return mIsDivChAndEn ? PickUtils.getStringLength(sequence) : sequence.length();
+        return mIsDivChAndEn ? CommonUtils.getStringLength(sequence) : sequence.length();
     }
 
     @Override

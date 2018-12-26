@@ -2,18 +2,14 @@ package com.miguan.youmi.module.common.presenter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 
 import com.blankj.utilcode.util.PhoneUtils;
 import com.miguan.youmi.app.Navigator;
-import com.miguan.youmi.bean.WebShare;
-import com.miguan.youmi.bean.account.User;
-import com.miguan.youmi.core.util.GsonUtil;
 import com.miguan.youmi.core.util.PickToast;
 import com.miguan.youmi.module.common.ui.activity.WebActivity;
 
-import com.miguan.youmi.util.PickUtils;
+import com.miguan.youmi.util.CommonUtils;
 
 /**
  * Desc: 暴露给JS调用的方法
@@ -78,7 +74,7 @@ public class AndroidInterface {
      */
     @JavascriptInterface
     public String getUserToken() {
-        return PickUtils.getToken();
+        return CommonUtils.getToken();
     }
 
     /**
@@ -91,7 +87,7 @@ public class AndroidInterface {
      */
     @JavascriptInterface
     public String getUserId() {
-        return PickUtils.getUserId();
+        return CommonUtils.getUserId();
     }
 
     /**

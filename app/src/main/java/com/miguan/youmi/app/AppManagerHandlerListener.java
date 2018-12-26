@@ -82,7 +82,7 @@ public class AppManagerHandlerListener implements AppManager.HandleListener {
 //        dialog.setCancelable(false);
 //        dialog.setCanTouchOutside(false);
 //        dialog.setContentText(msg);
-//        PickUtils.logout();
+//        CommonUtils.logout();
 //        dialog.setRightButton(R.string.relogin, v -> {
 //            if (ChatRoomManager.getInstance().isInChatRoom()) {
 //                ChatRoomManager.getInstance().clearChatRoomInfo();
@@ -95,7 +95,7 @@ public class AppManagerHandlerListener implements AppManager.HandleListener {
     private void reLogin(AppManager appManager) {
 //        Activity currentActivity = appManager.getCurrentActivity();
 //        JPushInterface.deleteAlias(currentActivity, 0); // 删除推送
-//        PickUtils.logout();
+//        CommonUtils.logout();
 //        Navigator.getInstance().getAccountNavigator().openLoginHomeActivity();
 //        appManager.killAll(LoginByCodeActivity.class);
     }
