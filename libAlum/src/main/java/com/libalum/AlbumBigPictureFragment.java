@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
-import com.miguan.youmi.core.util.PickToast;
+import com.common.cook.core.util.PickToast;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

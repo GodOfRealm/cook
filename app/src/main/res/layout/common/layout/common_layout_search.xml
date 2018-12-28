@@ -5,7 +5,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true">
 
-    <com.miguan.youmi.widget.SearchEditText
+    <com.common.cook.widget.SearchEditText
         android:id="@+id/common_et_search_key"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

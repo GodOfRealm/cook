@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.libalum.shortvideo.ShortVideoPreviewActivity;
 import com.libalum.utils.ShortVideoUtils;
-import com.miguan.youmi.core.util.PickToast;
+import com.common.cook.core.util.PickToast;
 
 import java.util.ArrayList;
 import java.util.List;

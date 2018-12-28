@@ -24,7 +24,7 @@
  -keepclassmembers class * {
      public <init> (org.json.JSONObject);
  }
- -keep public class com.miguan.youmi.R$*{
+ -keep public class com.common.cook.R$*{
      public static final int *;
  }
  -keepclassmembers enum * {

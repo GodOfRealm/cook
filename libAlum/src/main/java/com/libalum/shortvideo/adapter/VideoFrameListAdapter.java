@@ -6,10 +6,10 @@ import android.media.MediaMetadataRetriever;
 import android.media.ThumbnailUtils;
 import android.util.LruCache;
 
-import com.miguan.youmi.core.base.ViewHolder;
+import com.common.cook.core.base.ViewHolder;
 import com.libalum.R;
 import com.libalum.shortvideo.entity.VideoFrame;
-import com.miguan.youmi.core.base.BaseAdapter;
+import com.common.cook.core.base.BaseAdapter;
 
 import java.util.concurrent.Callable;
 

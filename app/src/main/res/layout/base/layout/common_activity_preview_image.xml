@@ -10,7 +10,7 @@
 
     <!--<include layout="@layout/base_include_status_bar" />-->
 
-    <com.miguan.pick.widget.HackyViewPager
+    <com.common.pick.widget.HackyViewPager
         android:id="@+id/preview_image_vp_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

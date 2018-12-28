@@ -26,7 +26,7 @@ import com.libalum.shortvideo.adapter.VideoFrameListAdapter;
 import com.libalum.shortvideo.entity.VideoFrame;
 import com.libalum.shortvideo.widget.RangeSeekBar;
 import com.libalum.utils.ShortVideoUtils;
-import com.miguan.youmi.core.thread.ExecutorServiceHelp;
+import com.common.cook.core.thread.ExecutorServiceHelp;
 import com.qiniu.pili.droid.shortvideo.PLShortVideoTrimmer;
 import com.qiniu.pili.droid.shortvideo.PLVideoSaveListener;
 import com.scwang.smartrefresh.layout.util.DensityUtil;

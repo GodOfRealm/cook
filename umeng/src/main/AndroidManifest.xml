@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.miguan.youmi.umeng">
+          package="com.common.cook.umeng">
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,7 @@
             />
 
         <activity
-            android:name="com.miguan.youmi.wxapi.WXEntryActivity"
+            android:name="com.common.cook.wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"

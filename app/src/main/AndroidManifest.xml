@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.miguan.youmi"> <!-- 聊天室：悬浮窗权限 -->
+    package="com.common.cook"> <!-- 聊天室：悬浮窗权限 -->
     <uses-sdk tools:overrideLibrary="com.example.fixedfloatwindow" />
 
     <uses-permission android:name="android.permission.INTERNET" />

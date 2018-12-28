@@ -96,7 +96,7 @@
                 android:orientation="horizontal"
                 >
 
-                <com.miguan.youmi.core.widget.radius.RadiusTextView
+                <com.common.cook.core.widget.radius.RadiusTextView
                     android:id="@+id/ok"
                     android:layout_width="75dp"
                     android:layout_height="33dp"

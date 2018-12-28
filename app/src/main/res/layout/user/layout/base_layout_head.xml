@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.miguan.youmi.core.widget.radius.RadiusImageView
+    <com.common.cook.core.widget.radius.RadiusImageView
         android:id="@+id/base_iv_head"
         android:layout_width="0dp"
         android:layout_height="0dp"

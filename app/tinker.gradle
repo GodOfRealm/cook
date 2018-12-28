@@ -93,7 +93,7 @@ if (buildWithTinker()) {
         dex {
             dexMode = "jar" //jar、raw
             pattern = ["classes*.dex", "assets/secondary-dex-?.jar"] //指定dex文件目录
-            loader = ["com.miguan.youmi.app.PickApplication"] //指定加载patch文件时用到的类
+            loader = ["com.common.cook.app.PickApplication"] //指定加载patch文件时用到的类
         }
         lib {
             /**

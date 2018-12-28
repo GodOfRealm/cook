@@ -19,7 +19,7 @@
         tools:src="@mipmap/list_empty_ic_fans"
         />
 
-    <com.miguan.youmi.core.widget.radius.RadiusTextView
+    <com.common.cook.core.widget.radius.RadiusTextView
         android:id="@+id/rtv_empty_other"
         android:layout_width="80dp"
         android:layout_height="30dp"
@@ -49,7 +49,7 @@
         tools:text="description"
         />
 
-    <com.miguan.youmi.core.widget.radius.RadiusTextView
+    <com.common.cook.core.widget.radius.RadiusTextView
         android:id="@+id/btn_retry"
         android:layout_width="80dp"
         android:layout_height="34dp"

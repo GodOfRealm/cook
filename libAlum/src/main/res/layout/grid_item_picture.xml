@@ -6,7 +6,7 @@
                 android:layout_height="wrap_content"
                 android:background="#fff">
 
-    <com.miguan.youmi.core.widget.RatioImageView
+    <com.common.cook.core.widget.RatioImageView
         android:id="@+id/iv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         android:layout_centerHorizontal="true"
         android:scaleType="centerCrop"/>
 
-    <com.miguan.youmi.core.widget.RatioImageView
+    <com.common.cook.core.widget.RatioImageView
         android:id="@+id/iv_not_to_select"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

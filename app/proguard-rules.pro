@@ -276,13 +276,13 @@
 -keep class com.tencent.tinker.**{
     *;
 }
--keep class com.miguan.youmi.tinker.TinkerApplicationLike{
+-keep class com.common.cook.tinker.TinkerApplicationLike{
     *;
 }
 
 #bean
--keep class com.miguan.youmi.bean.** {*;}
--keep class com.miguan.youmi.im.chat.** {*;}
+-keep class com.common.cook.bean.** {*;}
+-keep class com.common.cook.im.chat.** {*;}
 
 # RongCloud SDK
 -keep class io.rong.** {*;}
@@ -291,7 +291,7 @@
 -dontnote com.xiaomi.**
 -dontnote com.google.android.gms.gcm.**
 -dontnote io.rong.**
--keep class com.miguan.youmi.im.model.** {*;}
+-keep class com.common.cook.im.model.** {*;}
  # VoIP
  -keep class io.agora.rtc.** {*;}
  -keep class com.blink.**  { *; }
@@ -356,16 +356,16 @@
 # 如果使用了 DataBinding
 -dontwarn android.databinding.**
 -keep class android.databinding.** { *; }
--keep class com.miguan.youmi.databinding.** {
+-keep class com.common.cook.databinding.** {
     <fields>;
     <methods>;
 }
 
--keep class com.miguan.youmi.module.common.presenter.WebPresenter
+-keep class com.common.cook.module.common.presenter.WebPresenter
 
 # JS交互接口
 -keep class com.just.agentweb.** {
     *;
 }
 -dontwarn com.just.agentweb.**
--keepclassmembers class com.miguan.youmi.module.common.presenter.AndroidInterface { *; }
+-keepclassmembers class com.common.cook.module.common.presenter.AndroidInterface { *; }

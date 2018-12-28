@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.FileUtils;
 import com.libalum.R;
-import com.miguan.youmi.core.util.CacheUtil;
+import com.common.cook.core.util.CacheUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;

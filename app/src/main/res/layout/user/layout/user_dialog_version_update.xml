@@ -14,7 +14,7 @@
         android:minHeight="290dp"
         >
 
-        <com.miguan.youmi.core.widget.radius.RadiusImageView
+        <com.common.cook.core.widget.radius.RadiusImageView
             android:id="@+id/user_iv_version_update_dialog_bg"
             android:layout_width="wrap_content"
             android:layout_height="90dp"
@@ -76,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@+id/user_tv_version_update_dialog_message_title"
             />
 
-        <com.miguan.youmi.core.widget.radius.RadiusTextView
+        <com.common.cook.core.widget.radius.RadiusTextView
             android:id="@+id/user_tv_version_update_dialog_update"
             style="@style/ButtonStrokeRoundPrimary"
             android:layout_width="213dp"
