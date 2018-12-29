@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/base_include_toolbar" />
-</LinearLayout>
+    <include
+        android:id="@+id/base_status_bar"
+        layout="@layout/base_include_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toTopOf="parent"></include>
+    <ImageView
+        app:layout_constraintTop_toBottomOf="@+id/base_status_bar"
+        android:id="@+id/main_iv_topbg"
+        android:background="@color/color_0e5bfe"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/main_stl_menu"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/main_iv_topbg"
+        app:tl_iconVisible="false"
+        app:tl_indicator_color="@color/colorPrimary"
+        app:tl_indicator_corner_radius="1.5dp"
+        app:tl_indicator_height="3dp"
+        app:tl_indicator_margin_bottom="10dp"
+        app:tl_indicator_width="0dp"
+        app:tl_indicator_width_equal_title="false"
+        app:tl_tab_padding="15dp"
+        app:tl_tab_space_equal="true"
+        app:tl_textBold="NONE"
+        app:tl_textSelectColor="@color/colorTextPrimary"
+        app:tl_textUnselectColor="@color/colorTextSecondary"
+        app:tl_textsize="17sp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/main_stl_menu" />
+</android.support.constraint.ConstraintLayout>
