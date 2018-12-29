@@ -4,7 +4,6 @@ import android.text.TextUtils;
 
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.EncryptUtils;
-import com.blankj.utilcode.util.MetaDataUtils;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.jess.arms.http.GlobalHttpHandler;
 import com.common.cook.R;
@@ -39,17 +38,11 @@ public class GlobalHttpHandlerImp implements GlobalHttpHandler {
                     .header("channel", CommonUtils.getChannel())
                     .header("deviceType", "1")
                     .header("version", AppUtils.getAppVersionName())
-                    .header("signature", getSignature(timeMillis))
                     .header("timestamp", timeMillis)
                     .build();
         }
         return request;
     }
 
-    private String getSignature(String timeMillis) {
-        String key1 = MetaDataUtils.getMetaDataInApp("PICK_APP_KEY");
-        String key = PickApplication.getInstance().getResources().getString(R.string.key, key1, timeMillis);
-        return EncryptUtils.encryptMD5ToString(key).toLowerCase();
-    }
 
 }
