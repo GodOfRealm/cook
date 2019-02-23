@@ -1,35 +1,46 @@
 package com.common.cook.module.main.ui.activity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.common.cook.R;
 import com.common.cook.app.BaseActivity;
-import com.common.cook.app.BaseFragment;
-import com.common.cook.module.commodity.ui.fragment.CommodityHomeFragment;
+import com.common.cook.app.ViewConfig;
 import com.common.cook.module.main.contract.MainContract;
 import com.common.cook.module.main.di.component.DaggerMainComponent;
 import com.common.cook.module.main.di.module.MainModule;
 import com.common.cook.module.main.presenter.MainPresenter;
-import com.flyco.tablayout.SlidingTabLayout;
+import com.common.cook.util.UrlUtils;
 import com.jess.arms.di.component.AppComponent;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View, ViewPager.OnPageChangeListener {
-    @BindView(R.id.main_vp_content)
-    ViewPager mViewPager;
-    @BindView(R.id.main_stl_menu)
-    SlidingTabLayout mSlidingTabLayout;
-    private String[] mTitles = new String[]{"商品", "点赞"};
-    private ArrayList mFragments = new ArrayList<BaseFragment>() {{
-        add(CommodityHomeFragment.newInstance());
-        add(CommodityHomeFragment.newInstance());
-    }};
+public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
+
+    @BindView(R.id.main_wb_url)
+    WebView mbrowserWebview;//浏览webview
+    @BindView(R.id.main_wb_play)
+    WebView mPlayWebview;//播放webview
+    @BindView(R.id.main_dl)
+    DrawerLayout mDl;
+    @BindView(R.id.main_nv)
+    NavigationView mNv;
+    private String QQ_URL = "https://v.qq.com/";
+    private String AIQIYI_URL = "https://www.iqiyi.com/";
+    private String YOUKU_URL = "http://www.youku.com/";
+    public static String VIP_URL = "http://api.xiuyao.me/jx/?url=";
+    private String pcAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36";//电脑UA,模拟谷歌浏览器。
+    private String phoneAgent = "Mozilla/5.0 (Linux; Android 5.1; MZ-m1 metal Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0";//我的手机的浏览器的UA是
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
@@ -48,22 +59,124 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
-        mViewPager.addOnPageChangeListener(this);
-        mSlidingTabLayout.setViewPager(mViewPager, mTitles, this, mFragments);
+        initWebView();
+        initListner();
+        initDrawerLayout();
+        mbrowserWebview.loadUrl(QQ_URL);
     }
 
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
+    private void initDrawerLayout() {
 
     }
 
-    @Override
-    public void onPageScrollStateChanged(int state) {
+    private void initListner() {
+        mNv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                mDl.closeDrawers();
+                switch (menuItem.getItemId()) {
+                    case R.id.main_navigation_aqiyi:
+                        mbrowserWebview.loadUrl(AIQIYI_URL);
+                        break;
+                    case R.id.main_navigation_youku:
+                        mbrowserWebview.loadUrl(YOUKU_URL);
+                        break;
+                    case R.id.main_navigation_qq:
+                        mbrowserWebview.loadUrl(QQ_URL);
+                        break;
+                }
+                return false;
+            }
+        });
+    }
 
+    /**
+     * 展示网页界面
+     **/
+    public void initWebView() {
+        mbrowserWebview.setHorizontalScrollBarEnabled(false);//水平不显示
+        mbrowserWebview.setVerticalScrollBarEnabled(false); //垂直不显示
+        WebChromeClient wvcc = new WebChromeClient();
+        WebSettings webSettings = mbrowserWebview.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setUseWideViewPort(true); // 关键点
+        webSettings.setAllowFileAccess(true); // 允许访问文件
+        webSettings.setSupportZoom(true); // 支持缩放
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); // 不加载缓存内容
+        webSettings.setUserAgentString(pcAgent);
+
+
+        WebSettings playWebviewSettings = mPlayWebview.getSettings();
+        playWebviewSettings.setJavaScriptEnabled(true);
+        playWebviewSettings.setUseWideViewPort(true); // 关键点
+        playWebviewSettings.setAllowFileAccess(true); // 允许访问文件
+        playWebviewSettings.setSupportZoom(true); // 支持缩放
+        playWebviewSettings.setLoadWithOverviewMode(true);
+        playWebviewSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); // 不加载缓存内容
+
+
+        mbrowserWebview.setWebChromeClient(wvcc);
+
+        WebViewClient wvc = new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                mbrowserWebview.loadUrl(url);
+                return true;
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                if (UrlUtils.isVideo(url)) {
+                    view.stopLoading();
+                    mPlayWebview.setVisibility(View.VISIBLE);
+                    mPlayWebview.onResume();
+                    mPlayWebview.resumeTimers();
+                    mPlayWebview.loadUrl(VIP_URL + url);
+
+                }
+            }
+        };
+
+        mbrowserWebview.setWebViewClient(wvc);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (mPlayWebview.getVisibility() == View.VISIBLE) {
+            mPlayWebview.setVisibility(View.GONE);
+            mPlayWebview.onPause();
+            mPlayWebview.pauseTimers();
+
+        } else {
+            if (!mbrowserWebview.canGoBack()) {
+                super.onBackPressed();
+            } else {
+                mbrowserWebview.goBack();
+            }
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mPlayWebview != null) {
+            mPlayWebview.stopLoading();
+            mPlayWebview.getSettings().setJavaScriptEnabled(false);
+            mPlayWebview.clearHistory();
+            mPlayWebview.removeAllViews();
+            mPlayWebview.destroy();
+            mPlayWebview = null;
+        }
+        if (mbrowserWebview != null) {
+            mbrowserWebview.stopLoading();
+            mbrowserWebview.getSettings().setJavaScriptEnabled(false);
+            mbrowserWebview.clearHistory();
+            mbrowserWebview.removeAllViews();
+            mbrowserWebview.destroy();
+            mbrowserWebview = null;
+        }
     }
 }

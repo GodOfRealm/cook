@@ -139,9 +139,9 @@
         <activity
             android:name=".module.main.ui.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="Title"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
+            android:hardwareAccelerated="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
