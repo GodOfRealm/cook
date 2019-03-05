@@ -129,6 +129,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 if (UrlUtils.isVideo(url)) {
                     view.stopLoading();
+                    MainActivity.this.showLoading();
                     mPlayWebview.setVisibility(View.VISIBLE);
                     mPlayWebview.onResume();
                     mPlayWebview.resumeTimers();
@@ -137,8 +138,17 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 }
             }
         };
-
         mbrowserWebview.setWebViewClient(wvc);
+
+        mPlayWebview.setWebViewClient(
+                new WebViewClient() {
+                    @Override
+                    public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                        super.onPageStarted(view, url, favicon);
+                        MainActivity.this.hideLoading();
+                    }
+                }
+        );
     }
 
 
