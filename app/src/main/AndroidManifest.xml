@@ -102,20 +102,20 @@
 
         <!-- 启动页 -->
         <!--<activity-->
-            <!--android:name=".module.main.ui.activity.MainActivity"-->
-            <!--android:configChanges="keyboardHidden|orientation|screenSize"-->
-            <!--android:screenOrientation="portrait"-->
-            <!--android:theme="@style/LaunchTheme">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+        <!--android:name=".module.main.ui.activity.MainActivity"-->
+        <!--android:configChanges="keyboardHidden|orientation|screenSize"-->
+        <!--android:screenOrientation="portrait"-->
+        <!--android:theme="@style/LaunchTheme">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.VIEW" />-->
+        <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.VIEW" />-->
 
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-            <!--</intent-filter>-->
+        <!--<category android:name="android.intent.category.DEFAULT" />-->
+        <!--</intent-filter>-->
         <!--</activity>-->
 
         <!-- 登录页 -->
@@ -139,9 +139,8 @@
         <activity
             android:name=".module.main.ui.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask"
             android:hardwareAccelerated="true"
-            >
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -581,6 +580,12 @@
         <activity
             android:name=".module.repayment.ui.activity.AddCreditDetailInfoActivity"
             android:label="添加信用卡" />
+        <activity
+            android:name=".module.vip.ui.activity.VipActivity"
+            android:launchMode="singleTop"></activity>
+        <activity
+            android:name=".module.remind.ui.activity.RemindHomeActivity"
+            android:launchMode="singleTop"></activity>
     </application>
 
 </manifest>

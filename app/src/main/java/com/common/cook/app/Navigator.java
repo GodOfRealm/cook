@@ -2,6 +2,8 @@ package com.common.cook.app;
 
 
 import com.common.cook.module.common.CommonNavigator;
+import com.common.cook.module.vip.VipNavigator;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -20,6 +22,7 @@ public class Navigator {
     private static Navigator sInstance;
 
     private CommonNavigator mCommonNavigator; // 通用模块路由
+    private VipNavigator mVipNavigator;// 超级会员路由
 //    private AccountNavigator mAccountNavigator; // 账号模块路由
 //    private UserNavigator mUserNavigator;
 //    private MainNavigator mMainNavigator;//main路由
@@ -63,6 +66,7 @@ public class Navigator {
     @Inject
     public Navigator() {
         mCommonNavigator = new CommonNavigator();
+        mVipNavigator = new VipNavigator();
 //        mMainNavigator = new MainNavigator();
 //        mRepaymentNavigator = new RepaymentNavigator();
 
@@ -80,6 +84,13 @@ public class Navigator {
     public CommonNavigator getCommonNavigator() {
         return mCommonNavigator;
     }
+
+    //超级会员路由
+    public VipNavigator getVipNavigator() {
+        return mVipNavigator;
+    }
+
+
 
 //
     /**

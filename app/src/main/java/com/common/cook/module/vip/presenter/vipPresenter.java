@@ -1,9 +1,9 @@
-package com.common.cook.module.commodity.presenter;
+package com.common.cook.module.vip.presenter;
 
 import android.app.Application;
 
 import com.jess.arms.integration.AppManager;
-import com.jess.arms.di.scope.FragmentScope;
+import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.mvp.BasePresenter;
 import com.jess.arms.http.imageloader.ImageLoader;
 
@@ -11,11 +11,11 @@ import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 
 import javax.inject.Inject;
 
-import com.common.cook.module.commodity.contract.CommodityHomeContract;
+import com.common.cook.module.vip.contract.vipContract;
 
 
-@FragmentScope
-public class CommodityHomePresenter extends BasePresenter<CommodityHomeContract.Model, CommodityHomeContract.View> {
+@ActivityScope
+public class vipPresenter extends BasePresenter<vipContract.Model, vipContract.View> {
     @Inject
     RxErrorHandler mErrorHandler;
     @Inject
@@ -24,7 +24,7 @@ public class CommodityHomePresenter extends BasePresenter<CommodityHomeContract.
     AppManager mAppManager;
 
     @Inject
-    public CommodityHomePresenter(CommodityHomeContract.Model model, CommodityHomeContract.View rootView) {
+    public vipPresenter(vipContract.Model model, vipContract.View rootView) {
         super(model, rootView);
     }
 

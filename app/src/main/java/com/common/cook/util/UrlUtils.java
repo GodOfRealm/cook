@@ -2,6 +2,7 @@ package com.common.cook.util;
 
 import com.common.cook.bean.VideoTypeBean;
 import com.common.cook.module.main.ui.activity.MainActivity;
+import com.common.cook.module.vip.ui.activity.VipActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,7 +43,7 @@ public class UrlUtils {
         }};
 
         for (VideoTypeBean videoTypeBean : list) {
-            if (!url.contains(MainActivity.VIP_URL) && url.contains(videoTypeBean.getPrefix()) && url.contains(videoTypeBean.getSuffix())) {
+            if (!url.contains(VipActivity.VIP_URL) && url.contains(videoTypeBean.getPrefix()) && url.contains(videoTypeBean.getSuffix())) {
                 return true;
             }
         }
