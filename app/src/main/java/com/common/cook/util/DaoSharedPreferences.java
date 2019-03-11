@@ -34,12 +34,13 @@ public class DaoSharedPreferences {
     private static final String IS_VIBRATION = "is_vibration"; // 是否开启振动
     private static final String IS_NEWMESSAGE = "is_newmessage"; // 是否接收新消息提示
     private static final String IS_NOTIFICATION = "is_notification"; // 是否通知显示消息详情
-    private static final String SHOW_GUIDE = "first_login"; //是否显示引导页
+    private static final String SHOW_GUIDE = "first_login"; //是否第一次打开
     private static final String LAST_USER = "last_user"; // 最后一个登陆用户的信息
     private static final String LAST_USER_SENSITIVE_TEL = "last_user_sensitive_tel"; // 最后一个登陆用户的手机号码
     public static final String CUSTOMER_SERVICE_USER_INFO = "customer_service_user_info";
     public static final String NEW_LIKE = "new_like";
     public static final String IS_SPLASH_VOICE = "is_splash_voice"; // 是否播放启动音
+
 
     public static void init(Context context) {
         sContext = context.getApplicationContext();
@@ -62,7 +63,7 @@ public class DaoSharedPreferences {
     }
 
     /**
-     * 是否第一次登录
+     * 是否第一次打开
      *
      * @return
      */
@@ -71,7 +72,7 @@ public class DaoSharedPreferences {
     }
 
     /**
-     * 设置第一次登录
+     * 设置第一次打开
      */
     public void setFirstLogin() {
         mEditor.putBoolean(SHOW_GUIDE, false);

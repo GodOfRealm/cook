@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -15,11 +16,11 @@ import android.webkit.WebViewClient;
 
 import com.common.cook.R;
 import com.common.cook.app.BaseActivity;
-import com.common.cook.app.ViewConfig;
 import com.common.cook.module.main.contract.MainContract;
 import com.common.cook.module.main.di.component.DaggerMainComponent;
 import com.common.cook.module.main.di.module.MainModule;
 import com.common.cook.module.main.presenter.MainPresenter;
+import com.common.cook.util.DaoSharedPreferences;
 import com.common.cook.util.UrlUtils;
 import com.jess.arms.di.component.AppComponent;
 
@@ -62,11 +63,16 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         initWebView();
         initListner();
         initDrawerLayout();
+        showLoading();
         mbrowserWebview.loadUrl(QQ_URL);
     }
 
     private void initDrawerLayout() {
-
+        boolean firstLogin = DaoSharedPreferences.getInstance().isFirstLogin();
+        if (firstLogin) {
+            mDl.openDrawer(Gravity.LEFT);
+            DaoSharedPreferences.getInstance().setFirstLogin();
+        }
     }
 
     private void initListner() {
@@ -74,6 +80,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 mDl.closeDrawers();
+                showLoading();
                 switch (menuItem.getItemId()) {
                     case R.id.main_navigation_aqiyi:
                         mbrowserWebview.loadUrl(AIQIYI_URL);
@@ -96,7 +103,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public void initWebView() {
         mbrowserWebview.setHorizontalScrollBarEnabled(false);//水平不显示
         mbrowserWebview.setVerticalScrollBarEnabled(false); //垂直不显示
-        WebChromeClient wvcc = new WebChromeClient();
         WebSettings webSettings = mbrowserWebview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setUseWideViewPort(true); // 关键点
@@ -116,8 +122,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         playWebviewSettings.setCacheMode(WebSettings.LOAD_NO_CACHE); // 不加载缓存内容
 
 
-        mbrowserWebview.setWebChromeClient(wvcc);
-
         WebViewClient wvc = new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -125,8 +129,10 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 return true;
             }
 
+
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
+
                 if (UrlUtils.isVideo(url)) {
                     view.stopLoading();
                     MainActivity.this.showLoading();
@@ -139,6 +145,16 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             }
         };
         mbrowserWebview.setWebViewClient(wvc);
+        mbrowserWebview.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                super.onProgressChanged(view, newProgress);
+                if (newProgress >= 30){
+                    hideLoading();
+                }
+            }
+        });
+
 
         mPlayWebview.setWebViewClient(
                 new WebViewClient() {
